@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 591245198968672497}
   - component: {fileID: 591245198968672498}
   - component: {fileID: 591245198968672499}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PatonkiGrab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4276809438097106401}
   - component: {fileID: 1114684035794633577}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Patonki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,11 +200,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 591245198968672460}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: cf8f6e157ec359c47a30f35774634111,
-        type: 3}
-      propertyPath: m_Name
-      value: Patonki
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cf8f6e157ec359c47a30f35774634111,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -259,6 +254,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cf8f6e157ec359c47a30f35774634111,
+        type: 3}
+      propertyPath: m_Name
+      value: Patonki
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cf8f6e157ec359c47a30f35774634111,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf8f6e157ec359c47a30f35774634111, type: 3}

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public GameObject enemy;
     public float spawnTimer = .75f;
-    public float spawnTime = .75f;
+    public float spawnTime = 5f;
 
     void Start() {
         EnemySpawner();

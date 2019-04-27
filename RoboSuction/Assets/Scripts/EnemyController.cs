@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour
+{
 
     public float moveSpeed = 10f;
     public float hoverHeight = 0.75f;
@@ -23,22 +24,30 @@ public class EnemyController : MonoBehaviour {
 
     Rigidbody rb;
 
-    void Awake() {
+    void Awake()
+    {
         rb = GetComponent<Rigidbody>();
         batLayer = LayerMask.NameToLayer("Bat");
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("VRCamera").transform;
     }
 
-    void FixedUpdate() {
-        if(huntMode) {
+    void FixedUpdate()
+    {
+
+        if (huntMode)
+        {
             Move();
-        } else {
-            if(Vector3.Distance(prevPos, transform.position) < stunDist && Quaternion.Angle(transform.rotation, prevRot) < 1f) {
+        }
+        else
+        {
+            if (Vector3.Distance(prevPos, transform.position) < stunDist && Quaternion.Angle(transform.rotation, prevRot) < 1f)
+            {
                 rb.useGravity = false;
                 rb.isKinematic = true;
                 stunned = false;
             }
-            if(!stunned) {
+            if (!stunned)
+            {
                 Flip();
             }
             prevPos = transform.position;
@@ -46,48 +55,66 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void Flip() {
-        if(Vector3.Distance(transform.forward, Vector3.up) < dirDetectionDelta) {
+    void Flip()
+    {
+        if (Vector3.Distance(transform.forward, Vector3.up) < dirDetectionDelta)
+        {
             targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.up, Vector3.up), Vector3.up);
-        } else if(Vector3.Distance(transform.forward, Vector3.down) < dirDetectionDelta) {
+        }
+        else if (Vector3.Distance(transform.forward, Vector3.down) < dirDetectionDelta)
+        {
             targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(-transform.up, Vector3.up), Vector3.up);
-        } else {
+        }
+        else
+        {
             targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, Vector3.up), Vector3.up);
         }
         rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, flipSpeed * Time.deltaTime);
-        if(Vector3.Distance(transform.up, Vector3.up) < dirDetectionDelta) {
+        if (Vector3.Distance(transform.up, Vector3.up) < dirDetectionDelta)
+        {
             rb.rotation = targetRot;
             huntMode = true;
         }
     }
 
-    void Move() {
-        targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position),Vector3.up), Vector3.up);
-        if(transform.position.y < hoverHeight) {
+    void Move()
+    {
+        targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up), Vector3.up);
+        if (transform.position.y < hoverHeight)
+        {
             var targetPos = transform.position + Vector3.up * hoverHeight * moveSpeed * Time.deltaTime;
             rb.MovePosition(targetPos);
-        } else if(Vector3.Distance(transform.forward, Vector3.Normalize(Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up))) > dirDetectionDelta) {
+        }
+        else if (Vector3.Distance(transform.forward, Vector3.Normalize(Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up))) > dirDetectionDelta)
+        {
             rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, turnSpeed * Time.deltaTime);
-        } else {
+        }
+        else
+        {
             var targetVector = Vector3.ProjectOnPlane(player.position - transform.position, Vector3.up);
-            if(targetVector.magnitude > enemyWidth) {
+            if (targetVector.magnitude > enemyWidth)
+            {
                 var targetPos = transform.position + targetVector.normalized * moveSpeed * Time.deltaTime;
                 rb.MovePosition(targetPos);
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
 
-        if(other.gameObject.layer == batLayer) {
-            huntMode = false;
-            stunned = true;
+        if (other.gameObject.layer == batLayer)
+        {
             rb.isKinematic = false;
             rb.useGravity = true;
-
-            health -= 1;
-            if(health < 1)
-                Destroy(gameObject, 1f);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        huntMode = false;
+        stunned = true;
+        health -= 1;
+        if (health < 1)
+            Destroy(gameObject, 1f);
     }
 }

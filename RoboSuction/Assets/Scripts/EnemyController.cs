@@ -2,119 +2,127 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
-{
+public enum BotMode { Hunting, Stunned, Flipping, Turning, Attacking };
 
-    public float moveSpeed = 10f;
+public class EnemyController : MonoBehaviour {
+
+    public BotMode botmode;
     public float hoverHeight = 0.75f;
+    public float moveSpeed = 10f;
     public float turnSpeed = 60f;
     public float flipSpeed = 90f;
     public float enemyWidth = 0.75f;
-    public float stunDist = 0.1f;
-    public float dirDetectionDelta;
-    public bool huntMode;
-    public bool stunned;
     public int health = 3;
-    public Transform player;
+
+    public float stunDist = 0.1f;
+    public float dirDetectionDelta = 0.1f;
+
     Vector3 prevPos;
     Quaternion prevRot;
     Quaternion targetRot;
 
-    int batLayer;
-
     Rigidbody rb;
 
-    void Awake()
-    {
+    Transform player;
+
+    int batLayer;
+
+    void Awake() {
         rb = GetComponent<Rigidbody>();
         batLayer = LayerMask.NameToLayer("Bat");
-        player = GameObject.Find("VRCamera").transform;
+        //player = GameObject.Find("VRCamera").transform;
+        player = GameObject.Find("FollowHead").transform;
+        botmode = BotMode.Stunned;
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
 
-        if (huntMode)
-        {
-            Move();
+        if(botmode == BotMode.Hunting) {
+            Hunt();
         }
-        else
-        {
-            if (Vector3.Distance(prevPos, transform.position) < stunDist && Quaternion.Angle(transform.rotation, prevRot) < 1f)
-            {
-                rb.useGravity = false;
-                rb.isKinematic = true;
-                stunned = false;
-            }
-            if (!stunned)
-            {
-                Flip();
-            }
-            prevPos = transform.position;
-            prevRot = transform.rotation;
+        if(botmode == BotMode.Flipping) {
+            Flip();
+        }
+        if(botmode == BotMode.Attacking) {
+            Attack();
+        }
+        if(botmode == BotMode.Turning) {
+            Turn();
+        }
+        if(botmode == BotMode.Stunned) {
+            Stunned();
         }
     }
 
-    void Flip()
-    {
-        if (Vector3.Distance(transform.forward, Vector3.up) < dirDetectionDelta)
-        {
+    void Stunned() {
+        var hasMoved = Vector3.Distance(prevPos, transform.position);
+        //var hasRotated = 
+
+        if(hasMoved > stunDist) {
+            print("I am still stunned!");
+        } else {
+            botmode = BotMode.Flipping;
+        }
+
+        prevPos = transform.position;
+        prevRot = transform.rotation;
+    }
+
+    void Hunt() {
+        var targetVector = Vector3.ProjectOnPlane(player.position - transform.position, Vector3.up);
+        if(targetVector.magnitude > enemyWidth) {
+            var targetPos = transform.position + targetVector.normalized * moveSpeed * Time.deltaTime;
+            rb.MovePosition(targetPos);
+        } else {
+            botmode = BotMode.Attacking;
+        }
+    }
+
+    void Flip() {
+        if(Vector3.Distance(transform.forward, Vector3.up) < dirDetectionDelta) {
             targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.up, Vector3.up), Vector3.up);
-        }
-        else if (Vector3.Distance(transform.forward, Vector3.down) < dirDetectionDelta)
-        {
+        } else if(Vector3.Distance(transform.forward, Vector3.down) < dirDetectionDelta) {
             targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(-transform.up, Vector3.up), Vector3.up);
-        }
-        else
-        {
+        } else {
             targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, Vector3.up), Vector3.up);
         }
         rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, flipSpeed * Time.deltaTime);
-        if (Vector3.Distance(transform.up, Vector3.up) < dirDetectionDelta)
-        {
+        if(Vector3.Distance(transform.up, Vector3.up) < dirDetectionDelta) {
             rb.rotation = targetRot;
-            huntMode = true;
+            botmode = BotMode.Turning;
+            rb.isKinematic = true;
+            rb.useGravity = false;
         }
     }
 
-    void Move()
-    {
+    void Turn() {
         targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up), Vector3.up);
-        if (transform.position.y < hoverHeight)
-        {
+        if(transform.position.y < hoverHeight) {
             var targetPos = transform.position + Vector3.up * hoverHeight * moveSpeed * Time.deltaTime;
             rb.MovePosition(targetPos);
-        }
-        else if (Vector3.Distance(transform.forward, Vector3.Normalize(Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up))) > dirDetectionDelta)
-        {
+        } else if(Vector3.Distance(transform.forward, Vector3.Normalize(Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up))) > dirDetectionDelta) {
             rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, turnSpeed * Time.deltaTime);
-        }
-        else
-        {
-            var targetVector = Vector3.ProjectOnPlane(player.position - transform.position, Vector3.up);
-            if (targetVector.magnitude > enemyWidth)
-            {
-                var targetPos = transform.position + targetVector.normalized * moveSpeed * Time.deltaTime;
-                rb.MovePosition(targetPos);
-            }
+        } else {
+            botmode = BotMode.Hunting;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    void Attack() {
+        print("I am attacking now!");
+    }
 
-        if (other.gameObject.layer == batLayer)
-        {
+    private void OnTriggerEnter(Collider other) {
+
+        if(other.gameObject.layer == batLayer) {
             rb.isKinematic = false;
-            rb.useGravity = true;
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        huntMode = false;
-        stunned = true;
+
+    private void OnCollisionEnter(Collision collision) {
+        rb.useGravity = true;
+        botmode = BotMode.Stunned;
         health -= 1;
-        if (health < 1)
-            Destroy(gameObject, 1f);
+        //if(health < 1)
+            //Destroy(gameObject, 2f);
     }
 }

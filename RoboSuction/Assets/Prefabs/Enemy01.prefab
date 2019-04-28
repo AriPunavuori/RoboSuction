@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7981473708868186864}
   - component: {fileID: 4703348935755246601}
   - component: {fileID: 8932127680876205553}
-  - component: {fileID: 2883251086455880842}
   - component: {fileID: 2995784823876893499}
-  - component: {fileID: 2995784823876893500}
+  - component: {fileID: 2599990576899281706}
   - component: {fileID: 7018463376283849153}
   - component: {fileID: 4400282903680065968}
+  - component: {fileID: 2995784823876893500}
   m_Layer: 0
   m_Name: Enemy01
   m_TagString: Untagged
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2883251086455880842
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2995784823876893498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.86235, y: 0.71, z: 1.06}
-  m_Center: {x: 0, y: 0.0000000011869237, z: 0.1513585}
 --- !u!54 &2995784823876893499
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -105,13 +92,54 @@ Rigidbody:
   m_GameObject: {fileID: 2995784823876893498}
   serializedVersion: 2
   m_Mass: 15
-  m_Drag: 0
+  m_Drag: 0.06
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 2
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
+--- !u!136 &2599990576899281706
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995784823876893498}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.17
+  m_Height: 0.52
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &7018463376283849153
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995784823876893498}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.23
+  m_Height: 0.61
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &4400282903680065968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995784823876893498}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: -0.13}
 --- !u!114 &2995784823876893500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,34 +160,8 @@ MonoBehaviour:
   enemyWidth: 0.75
   health: 300
   stunDist: 0.1
+  stunTimer: 0
   dirDetectionDelta: 0.1
---- !u!136 &7018463376283849153
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2995784823876893498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.17
-  m_Height: 0.52
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &4400282903680065968
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2995784823876893498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: -0.13}
 --- !u!1001 &5927677322654005987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,6 +169,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7981473708868186864}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: ca4643d0916186445a2a1c0c7d56a396,
+        type: 3}
+      propertyPath: m_Name
+      value: Robot_1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca4643d0916186445a2a1c0c7d56a396,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -221,11 +228,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: ca4643d0916186445a2a1c0c7d56a396,
-        type: 3}
-      propertyPath: m_Name
-      value: Robot_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca4643d0916186445a2a1c0c7d56a396, type: 3}

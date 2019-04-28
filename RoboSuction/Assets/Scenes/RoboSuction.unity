@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  spawnPoint: {x: 0, y: 0, z: 3}
+  spawnPoint: {x: 0, y: 0.33, z: 3}
   player: {fileID: 1665347144}
   enemy: {fileID: 2995784823876893498, guid: 67911e4a7222b47c79ffa084998ef904, type: 3}
   spawnTimer: 10

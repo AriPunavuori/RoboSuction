@@ -17,7 +17,9 @@ public class EnemyController : MonoBehaviour {
     public float stunDist = 0.1f;
     public float dirDetectionDelta = 0.1f;
 
+
     Vector3 prevPos;
+    Vector3 targetVector;
     Quaternion prevRot;
     Quaternion targetRot;
 
@@ -36,6 +38,8 @@ public class EnemyController : MonoBehaviour {
     }
 
     void FixedUpdate() {
+
+
 
         if(botmode == BotMode.Hunting) {
             Hunt();
@@ -68,30 +72,20 @@ public class EnemyController : MonoBehaviour {
         prevRot = transform.rotation;
     }
 
-    void Hunt() {
-        var targetVector = Vector3.ProjectOnPlane(player.position - transform.position, Vector3.up);
-        if(targetVector.magnitude > enemyWidth) {
-            var targetPos = transform.position + targetVector.normalized * moveSpeed * Time.deltaTime;
-            rb.MovePosition(targetPos);
-        } else {
-            botmode = BotMode.Attacking;
-        }
-    }
-
     void Flip() {
-        if(Vector3.Distance(transform.forward, Vector3.up) < dirDetectionDelta) {
-            targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.up, Vector3.up), Vector3.up);
-        } else if(Vector3.Distance(transform.forward, Vector3.down) < dirDetectionDelta) {
-            targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(-transform.up, Vector3.up), Vector3.up);
-        } else {
+        //if(Vector3.Distance(transform.forward, Vector3.up) > dirDetectionDelta) {
+        //    targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.up, Vector3.up), Vector3.up);
+        //} else if(Vector3.Distance(transform.forward, Vector3.down) > dirDetectionDelta) {
+        //    targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(-transform.up, Vector3.up), Vector3.up);
+        //} else {
             targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, Vector3.up), Vector3.up);
-        }
+        //}
         rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, flipSpeed * Time.deltaTime);
         if(Vector3.Distance(transform.up, Vector3.up) < dirDetectionDelta) {
             rb.rotation = targetRot;
             botmode = BotMode.Turning;
-            rb.isKinematic = true;
-            rb.useGravity = false;
+            //rb.isKinematic = true;
+            //rb.useGravity = false;
         }
     }
 
@@ -107,19 +101,49 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void Attack() {
-        print("I am attacking now!");
+    void Hunt() {
+        if(!CheckAttackDistance()) {
+            var targetPos = transform.position + targetVector.normalized * moveSpeed * Time.deltaTime;
+            rb.MovePosition(targetPos);
+        } else {
+            botmode = BotMode.Attacking;
+        }
     }
+
+    void Attack() {
+        if(CheckAttackDistance()) {
+            print("I am attacking now!");
+        } else {
+            botmode = BotMode.Hunting;
+        }
+    }
+
+    bool CheckAttackDistance() {
+        targetVector = Vector3.ProjectOnPlane(player.position - transform.position, Vector3.up);
+        if(targetVector.magnitude > enemyWidth) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //bool CheckDirection() {
+    //    if() {
+    //        return true;
+    //    } else {
+    //        return false;
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other) {
 
         if(other.gameObject.layer == batLayer) {
-            rb.isKinematic = false;
+            //rb.isKinematic = false;
         }
     }
 
     private void OnCollisionEnter(Collision collision) {
-        rb.useGravity = true;
+        //rb.useGravity = true;
         botmode = BotMode.Stunned;
         health -= 1;
         //if(health < 1)

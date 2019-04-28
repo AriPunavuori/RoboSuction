@@ -6,6 +6,7 @@ public enum BotMode { AdjustingHoverHeight, Attacking, Flipping, Hunting, Stunne
 
 public class EnemyController : MonoBehaviour {
 
+    GameManager gm;
     public BotMode botmode;
     public float hoverHeight = 0.75f;
     public float hoverHeightTolerance = 0.1f;
@@ -13,8 +14,11 @@ public class EnemyController : MonoBehaviour {
     public float turnSpeed = 60f;
     public float flipSpeed = 90f;
     public float enemyWidth = 0.75f;
+    public int damage = 10;
     int health = 3;
 
+    public float attackTimer;
+    public float attackTime =1f;
     float stunTime = .5f;
     float stunTimer;
     public float dirDetectionDelta = 0.1f;
@@ -35,9 +39,11 @@ public class EnemyController : MonoBehaviour {
     void Awake() {
         rb = GetComponent<Rigidbody>();
         batLayer = LayerMask.NameToLayer("Bat");
-        player = GameObject.Find("VRCamera").transform;
-        //player = GameObject.Find("FollowHead").transform;
+        //player = GameObject.Find("VRCamera").transform;
+        player = GameObject.Find("FollowHead").transform;
         stunTimer = stunTime;
+        attackTimer = attackTime;
+        gm = FindObjectOfType<GameManager>();
     }
 
     void FixedUpdate() {
@@ -105,7 +111,11 @@ public class EnemyController : MonoBehaviour {
     }
 
     void Attack() {
-        //print("I am attacking now!");
+        attackTimer -= Time.deltaTime;
+        if(attackTimer < 0) {
+            gm.SetHealth(damage);
+            attackTimer = attackTime;
+        }
     }
 
     bool CheckOrientation() {

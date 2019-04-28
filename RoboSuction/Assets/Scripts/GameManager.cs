@@ -7,13 +7,13 @@ public class GameManager : MonoBehaviour {
     public Vector3 spawnPoint;
     public GameObject player;
     public GameObject enemy;
-    public float spawnTimer = .75f;
-    public float spawnTime = 5f;
+    public float spawnTimer = 1f;
+    float spawnTime = 1f;
 
     void Update() {
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0) {
-            //EnemySpawner();
+            EnemySpawner();
             spawnTimer = spawnTime;
         }
     }

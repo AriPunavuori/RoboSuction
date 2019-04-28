@@ -85,7 +85,7 @@ public class EnemyController : MonoBehaviour {
             rb.rotation = targetRot;
             botmode = BotMode.Turning;
             //rb.isKinematic = true;
-            //rb.useGravity = false;
+            rb.useGravity = false;
         }
     }
 
@@ -143,7 +143,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void OnCollisionEnter(Collision collision) {
-        //rb.useGravity = true;
+        rb.useGravity = true;
         botmode = BotMode.Stunned;
         health -= 1;
         //if(health < 1)

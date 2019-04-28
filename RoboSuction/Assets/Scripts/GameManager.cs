@@ -10,15 +10,10 @@ public class GameManager : MonoBehaviour {
     public float spawnTimer = .75f;
     public float spawnTime = 5f;
 
-    void Start() {
-        EnemySpawner();
-    }
-
-
     void Update() {
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0) {
-            EnemySpawner();
+            //EnemySpawner();
             spawnTimer = spawnTime;
         }
     }

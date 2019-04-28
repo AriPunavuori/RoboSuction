@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4703348935755246601}
   - component: {fileID: 8932127680876205553}
   - component: {fileID: 2995784823876893499}
+  - component: {fileID: 2995784823876893500}
   - component: {fileID: 2599990576899281706}
   - component: {fileID: 7018463376283849153}
   - component: {fileID: 4400282903680065968}
-  - component: {fileID: 2995784823876893500}
   m_Layer: 0
   m_Name: Enemy01
   m_TagString: Untagged
@@ -99,6 +99,28 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &2995784823876893500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995784823876893498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005edc589e19f4705a4fea202388faa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  botmode: 0
+  hoverHeight: 0.5
+  hoverHeightTolerance: 0.1
+  moveSpeed: 1.25
+  turnSpeed: 180
+  flipSpeed: 50
+  enemyWidth: 0.75
+  stunDist: 0.1
+  stunTimer: 0
+  dirDetectionDelta: 0.1
 --- !u!136 &2599990576899281706
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -140,28 +162,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: -0.13}
---- !u!114 &2995784823876893500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2995784823876893498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005edc589e19f4705a4fea202388faa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  botmode: 0
-  hoverHeight: 0.5
-  moveSpeed: 1.25
-  turnSpeed: 180
-  flipSpeed: 50
-  enemyWidth: 0.75
-  health: 300
-  stunDist: 0.1
-  stunTimer: 0
-  dirDetectionDelta: 0.1
 --- !u!1001 &5927677322654005987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,11 +169,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7981473708868186864}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: ca4643d0916186445a2a1c0c7d56a396,
-        type: 3}
-      propertyPath: m_Name
-      value: Robot_1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca4643d0916186445a2a1c0c7d56a396,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -228,6 +223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ca4643d0916186445a2a1c0c7d56a396,
+        type: 3}
+      propertyPath: m_Name
+      value: Robot_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca4643d0916186445a2a1c0c7d56a396, type: 3}

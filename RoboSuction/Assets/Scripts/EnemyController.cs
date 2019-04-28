@@ -113,7 +113,7 @@ public class EnemyController : MonoBehaviour {
     void Attack() {
         attackTimer -= Time.deltaTime;
         if(attackTimer < 0) {
-            gm.SetHealth(damage);
+            gm.SetHealth(-damage);
             attackTimer = attackTime;
         }
     }
@@ -149,7 +149,8 @@ public class EnemyController : MonoBehaviour {
             rb.useGravity = true;
             botmode = BotMode.Stunned;
             health -= 1;
-            if(health < 1)
+            if (health < 1)
+                gm.SetHealth(1);
                 Destroy(gameObject, 2f);
         }
     }

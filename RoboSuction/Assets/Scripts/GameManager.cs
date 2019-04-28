@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
 
-    public Vector3 spawnPoint;
+    public TextMeshProUGUI uiText;
+    public Vector3[] spawnPoints;
     public GameObject player;
     public GameObject enemy;
     public Slider healthBar;
@@ -16,19 +18,24 @@ public class GameManager : MonoBehaviour {
     void Update() {
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0) {
-            //EnemySpawner();
+            int index = Random.Range(0, spawnPoints.Length);
+            EnemySpawner(spawnPoints[index]);
             spawnTimer = spawnTime;
         }
     }
 
-    public void EnemySpawner() {
-        var f = Vector3.ProjectOnPlane(player.transform.position - spawnPoint,Vector3.up);
+    public void EnemySpawner(Vector3 spawnPoint) {
+        var f = Vector3.ProjectOnPlane(player.transform.position - spawnPoint, Vector3.up);
         Instantiate(enemy, spawnPoint, Quaternion.LookRotation(f));
     }
 
     public void SetHealth(int amount) {
-        playerHealth -= amount;
+        playerHealth += amount;
         healthBar.value = playerHealth / 100f;
+        if (playerHealth < 1) {
+            uiText.text = ("U R DED!!!!!!!1");
+            Time.timeScale = 0;
+        }
     }
 
 }

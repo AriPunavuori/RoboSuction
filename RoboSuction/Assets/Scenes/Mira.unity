@@ -387,6 +387,11 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 591245198968672497, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a55096e794f4d5e41944ceee8610cb35, type: 3}
 --- !u!114 &53552651 stripped
@@ -5731,7 +5736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1070848317
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10958,6 +10963,11 @@ PrefabInstance:
     - target: {fileID: 8372067122779711998, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 591245198968672497, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

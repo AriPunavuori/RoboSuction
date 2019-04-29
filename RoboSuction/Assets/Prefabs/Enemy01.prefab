@@ -66,8 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005edc589e19f4705a4fea202388faa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: {fileID: 8300000, guid: 32282117aaf6b0841b79108c70075335, type: 3}
-  HurtSound: {fileID: 8300000, guid: b8989d08874b9fa45987d357e9e65f2b, type: 3}
+  AttackSound: {fileID: 8300000, guid: ee58be0e2b0ca924ebaeefdcaac8cf0e, type: 3}
+  HurtSound: {fileID: 8300000, guid: 2f799695a9445f04ea80fb7588669911, type: 3}
+  SpawnSound: {fileID: 8300000, guid: e3dfa1f1c70e77049bd421779ed6e400, type: 3}
+  DieSound: {fileID: 8300000, guid: 37bbc9bb8a861ea4c91b487c836d83d8, type: 3}
   Enemy: {fileID: 307167880320584629}
   botmode: 0
   hoverHeight: 1
@@ -190,7 +192,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

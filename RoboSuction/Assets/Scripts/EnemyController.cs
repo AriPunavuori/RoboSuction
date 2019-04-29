@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Start() {
-        Enemy.PlayOneShot(SpawnSound);
+        Enemy.PlayOneShot(SpawnSound, 0.01f);
     }
 
     void FixedUpdate() {
@@ -126,7 +126,7 @@ public class EnemyController : MonoBehaviour {
         if(attackTimer < 0) {
             gm.SetHealth(-damage);
             attackTimer = attackTime;
-            Enemy.PlayOneShot(AttackSound);
+            Enemy.PlayOneShot(AttackSound, 0.3f);
         }
     }
 
@@ -164,7 +164,7 @@ public class EnemyController : MonoBehaviour {
             Enemy.PlayOneShot(HurtSound);
             if (health < 1)
                 gm.SetHealth(1);
-            Enemy.PlayOneShot(DieSound);
+            //Enemy.PlayOneShot(DieSound);
                 Destroy(gameObject, 2f);
         }
     }

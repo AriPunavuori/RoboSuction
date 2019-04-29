@@ -6,6 +6,12 @@ public enum BotMode { AdjustingHoverHeight, Attacking, Flipping, Hunting, Stunne
 
 public class EnemyController : MonoBehaviour {
 
+    public AudioClip AttackSound;
+    public AudioClip HurtSound;
+    public AudioClip SpawnSound;
+    public AudioClip DieSound;
+    public AudioSource Enemy;
+
     GameManager gm;
     public BotMode botmode;
     public float hoverHeight = 0.75f;
@@ -46,9 +52,14 @@ public class EnemyController : MonoBehaviour {
         gm = FindObjectOfType<GameManager>();
     }
 
+    private void Start() {
+        Enemy.PlayOneShot(SpawnSound, 0.01f);
+    }
+
     void FixedUpdate() {
 
         if(!Stunned()) {
+
             if(CheckOrientation()) {
                 botmode = BotMode.Flipping;
                 Flip();
@@ -115,6 +126,7 @@ public class EnemyController : MonoBehaviour {
         if(attackTimer < 0) {
             gm.SetHealth(-damage);
             attackTimer = attackTime;
+            Enemy.PlayOneShot(AttackSound, 0.3f);
         }
     }
 
@@ -149,8 +161,10 @@ public class EnemyController : MonoBehaviour {
             rb.useGravity = true;
             botmode = BotMode.Stunned;
             health -= 1;
+            Enemy.PlayOneShot(HurtSound);
             if (health < 1)
                 gm.SetHealth(1);
+            //Enemy.PlayOneShot(DieSound);
                 Destroy(gameObject, 2f);
         }
     }

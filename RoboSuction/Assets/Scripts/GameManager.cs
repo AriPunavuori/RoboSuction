@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
         spawnTimer -= Time.deltaTime;
         if(spawnTimer < 0) {
             int index = Random.Range(0, spawnPoints.Length);
-            EnemySpawner(spawnPoints[index]);
+            //EnemySpawner(spawnPoints[index]);
             spawnTimer = spawnTime;
         }
     }

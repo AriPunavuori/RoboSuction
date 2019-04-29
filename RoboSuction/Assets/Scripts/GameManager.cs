@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour {
         waveName.Add("Wave 1");
         waveName.Add("Wave 2");
         waveName.Add("Wave 3");
+        waveName.Add("Your life currentcy has been sucked dry!");
+        waveName.Add("You Win!");
         uiText.text = waveName[waveNumber];
         textTimer = textTime;
     }
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour {
                     waveStarted = true;
                 }
             }
+        } else {
+            uiText.text = waveName[waveName.Count-1];
         }
     }
 
@@ -88,7 +92,9 @@ public class GameManager : MonoBehaviour {
 
         healthBar.value = dh / 5;
         if(playerHealth < 1) {
-            uiText.text = ("U R DED!!!!!!!1");
+            print("kuolema");
+            uiText.text = waveName[waveName.Count - 2];
+            textTimer = textTime;
             Time.timeScale = 0;
         }
     }

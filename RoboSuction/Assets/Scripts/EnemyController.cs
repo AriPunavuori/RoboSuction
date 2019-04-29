@@ -124,7 +124,7 @@ public class EnemyController : MonoBehaviour {
     void Attack() {
         attackTimer -= Time.deltaTime;
         if(attackTimer < 0) {
-            //gm.SetHealth(-damage);
+            gm.SetHealth(-damage);
             attackTimer = attackTime;
             Enemy.PlayOneShot(AttackSound, 0.3f);
         }

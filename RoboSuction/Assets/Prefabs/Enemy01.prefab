@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005edc589e19f4705a4fea202388faa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: {fileID: 8300000, guid: ee58be0e2b0ca924ebaeefdcaac8cf0e, type: 3}
+  AttackSound: {fileID: 8300000, guid: 32282117aaf6b0841b79108c70075335, type: 3}
   HurtSound: {fileID: 8300000, guid: 2f799695a9445f04ea80fb7588669911, type: 3}
   SpawnSound: {fileID: 8300000, guid: e3dfa1f1c70e77049bd421779ed6e400, type: 3}
   DieSound: {fileID: 8300000, guid: 37bbc9bb8a861ea4c91b487c836d83d8, type: 3}

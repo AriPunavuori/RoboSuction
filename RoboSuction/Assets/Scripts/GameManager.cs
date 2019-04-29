@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour {
 
     public void SetHealth(int amount) {
         playerHealth += amount;
-        healthBar.value = playerHealth / 100f;
+        var dh = Mathf.Ceil(playerHealth / 20f);
+        
+        healthBar.value = dh / 5;
         if (playerHealth < 1) {
             uiText.text = ("U R DED!!!!!!!1");
             Time.timeScale = 0;

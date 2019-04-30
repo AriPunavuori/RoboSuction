@@ -7,6 +7,10 @@ using TMPro;
 public class GameManager : MonoBehaviour {
 
     public TextMeshProUGUI uiText;
+    public TextMeshProUGUI wave1;
+    public TextMeshProUGUI wave2;
+    public TextMeshProUGUI kills1;
+    public TextMeshProUGUI kills2;
     public Vector3[] spawnPoints;
     public GameObject[] enemies;
     public Vector4[] waveInfo;
@@ -33,6 +37,8 @@ public class GameManager : MonoBehaviour {
         waveName.Add("Your life currentcy has been sucked dry!");
         waveName.Add("You Win!");
         uiText.text = waveName[waveNumber];
+        SetWaveText();
+        SetKillText();
         textTimer = textTime;
     }
 
@@ -60,6 +66,7 @@ public class GameManager : MonoBehaviour {
             }
         } else {
             uiText.text = waveName[waveName.Count-1];
+            SetWaveText();
         }
     }
 
@@ -99,4 +106,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void SetKillText() {
+        kills1.text = "Kills:" + enemiesKilled;
+        kills2.text = "Kills:" + enemiesKilled;
+    }
+    public void SetWaveText() {
+        wave1.text = "Wave:" + (waveNumber + 1);
+        wave2.text = "Wave:" + (waveNumber + 1);
+    }
 }

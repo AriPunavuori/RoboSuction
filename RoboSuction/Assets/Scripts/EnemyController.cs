@@ -124,7 +124,7 @@ public class EnemyController : MonoBehaviour {
     void Attack() {
         attackTimer -= Time.deltaTime;
         if(attackTimer < 0) {
-            gm.SetHealth(-damage);
+            //gm.SetHealth(-damage);
             attackTimer = attackTime;
             Enemy.PlayOneShot(AttackSound, 0.3f);
         }
@@ -166,6 +166,7 @@ public class EnemyController : MonoBehaviour {
                 gm.SetHealth(1);
                 //Enemy.PlayOneShot(DieSound);
                 Destroy(gameObject, 2f);
+                gm.SetKillText();
                 gm.enemiesKilled++;
             }
         }

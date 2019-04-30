@@ -60,13 +60,13 @@ public class GameManager : MonoBehaviour {
                     enemiesSpawned = 0;
                     enemiesKilled = 0;
                     uiText.text = waveName[waveNumber];
+                    SetWaveText();
                     textTimer = textTime;
                     waveStarted = true;
                 }
             }
         } else {
             uiText.text = waveName[waveName.Count-1];
-            SetWaveText();
         }
     }
 
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour {
         kills2.text = "Kills:" + enemiesKilled;
     }
     public void SetWaveText() {
-        wave1.text = "Wave:" + (waveNumber + 1);
-        wave2.text = "Wave:" + (waveNumber + 1);
+        wave1.text = "Wave:" + waveNumber;
+        wave2.text = "Wave:" + waveNumber;
     }
 }

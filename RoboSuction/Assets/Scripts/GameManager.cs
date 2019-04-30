@@ -77,9 +77,8 @@ public class GameManager : MonoBehaviour {
     public void EnemySpawner() {
 
         if((int)waveInfo[waveNumber].x >= enemiesSpawned) {
-            int spawnpointIndex = Random.Range(0, spawnPoints.Length);
+            int spawnpointIndex = Mathf.Clamp(Random.Range(0, waveNumber * 2 + 2),0,spawnPoints.Length);
             int enemyIndex = Random.Range((int)waveInfo[waveNumber].z, (int)waveInfo[waveNumber].w + 1);
-            //spawnpointIndex = 2; // yhdestä suunnasta testausta varten
             spawnTimer = waveInfo[waveNumber].y;
 
             var f = Vector3.ProjectOnPlane(player.transform.position - spawnPoints[spawnpointIndex], Vector3.up);

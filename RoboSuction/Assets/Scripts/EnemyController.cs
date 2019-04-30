@@ -29,6 +29,8 @@ public class EnemyController : MonoBehaviour {
     float stunTimer;
     public float dirDetectionDelta = 0.1f;
 
+    bool botKilled;
+
     Vector3 targetVector;
 
     Vector3 prevPos;
@@ -155,21 +157,27 @@ public class EnemyController : MonoBehaviour {
 
 
     private void OnTriggerEnter(Collider other) {
-
-        if(other.gameObject.layer == batLayer) {
-            stunTimer = stunTime;
-            rb.useGravity = true;
-            botmode = BotMode.Stunned;
-            health -= 1;
-            Enemy.PlayOneShot(HurtSound);
-            if(health < 1) {
-                gm.SetHealth(1);
-                //Enemy.PlayOneShot(DieSound);
-                Destroy(gameObject, 2f);
-                gm.SetKillText();
-                gm.enemiesKilled++;
+        if (!botKilled)
+        {
+            if (other.gameObject.layer == batLayer)
+            {
+                stunTimer = stunTime;
+                rb.useGravity = true;
+                botmode = BotMode.Stunned;
+                health -= 1;
+                Enemy.PlayOneShot(HurtSound);
+                if (health < 1)
+                {
+                    botKilled = true;
+                    gm.SetHealth(1);
+                    Enemy.PlayOneShot(DieSound);
+                    Destroy(gameObject, .5f);
+                    gm.enemiesKilled++;
+                    gm.SetKillText();
+                }
             }
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision) {

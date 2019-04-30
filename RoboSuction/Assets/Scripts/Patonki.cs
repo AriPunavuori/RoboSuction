@@ -5,30 +5,24 @@ using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class Patonki : MonoBehaviour {
-    public Transform attachmentPoint;
     public SteamVR_Action_Vibration touchFeedback;
+    public bool isRightHand;
     Interactable interactable;
-    public float feedbackAmplitude = 100;
-    public float feedbackFrequency = 100;
-    public float feedbackLength  = 1;
+    float feedbackAmplitude = 75;
+    float feedbackFrequency = 200;
+    float feedbackLength  = .15f;
 
-    //private void OnCollisionEnter(Collision collision) {
-    //    if(interactable.attachedToHand != null) {
-    //        touchFeedback.Execute(0, feedbackLength, feedbackFrequency, feedbackAmplitude, SteamVR_Input_Sources.RightHand);
-    //        print("Feedback");
-    //    }
-    //}
-    private void Awake()
-    {
+    private void Awake() {
         interactable = GetComponent<Interactable>();    
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-       
+    private void OnTriggerEnter(Collider other) {
+        print("Feedback");
+        if(isRightHand)
             touchFeedback.Execute(0, feedbackLength, feedbackFrequency, feedbackAmplitude, SteamVR_Input_Sources.RightHand);
-            print("Feedback");
-        
+        else
+            touchFeedback.Execute(0, feedbackLength, feedbackFrequency, feedbackAmplitude, SteamVR_Input_Sources.LeftHand);
+
     }
 
 }

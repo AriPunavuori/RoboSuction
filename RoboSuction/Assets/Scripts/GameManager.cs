@@ -24,16 +24,16 @@ public class GameManager : MonoBehaviour {
     public int playerHealth = 100;
     public bool waveStarted;
     float textTimer;
-    float textTime = 4f;
+    float textTime = 10f;
     bool gameEnded;
     bool waitingForKills;
     float spawnTime = 1f;
 
     private void Start() {
-        waveName.Add("Warm Up");
-        waveName.Add("Wave 1");
-        waveName.Add("Wave 2");
-        waveName.Add("Wave 3");
+        waveName.Add("Time for Warm Up!");
+        waveName.Add("Here we go!");
+        waveName.Add("Ready 4 more?");
+        waveName.Add("Just survive!");
         waveName.Add("Your life currentcy has been sucked dry!");
         waveName.Add("You Win!");
         uiText.text = waveName[waveNumber];
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour {
                     waitingForKills = false;
                     enemiesSpawned = 0;
                     enemiesKilled = 0;
+                    SetKillText();
                     uiText.text = waveName[waveNumber];
                     SetWaveText();
                     textTimer = textTime;
@@ -66,7 +67,10 @@ public class GameManager : MonoBehaviour {
                 }
             }
         } else {
-            uiText.text = waveName[waveName.Count-1];
+            if (enemiesKilled >= enemiesSpawned) {
+                textTimer = textTime;
+                uiText.text = waveName[waveName.Count - 1];
+            }
         }
     }
 
@@ -75,7 +79,7 @@ public class GameManager : MonoBehaviour {
         if((int)waveInfo[waveNumber].x >= enemiesSpawned) {
             int spawnpointIndex = Random.Range(0, spawnPoints.Length);
             int enemyIndex = Random.Range((int)waveInfo[waveNumber].z, (int)waveInfo[waveNumber].w + 1);
-            print("EnemyIndex:" + enemyIndex);
+            //spawnpointIndex = 2; // yhdestä suunnasta testausta varten
             spawnTimer = waveInfo[waveNumber].y;
 
             var f = Vector3.ProjectOnPlane(player.transform.position - spawnPoints[spawnpointIndex], Vector3.up);
@@ -84,8 +88,7 @@ public class GameManager : MonoBehaviour {
             if(enemiesSpawned >= (int)waveInfo[waveNumber].x) {
                 waveNumber++;
                 waitingForKills = true;
-                print(waitingForKills);
-                spawnTimer = 5f;
+                spawnTimer = 7.5f;
                 if(waveNumber >= waveInfo.Length) {
                     gameEnded = true;
                 }

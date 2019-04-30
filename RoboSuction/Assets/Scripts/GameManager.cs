@@ -97,7 +97,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SetHealth(int amount) {
+        
         playerHealth += amount;
+        if (playerHealth > 100)
+            playerHealth = 100;
         var dh = Mathf.Ceil(playerHealth / 20f);
 
         healthBar.value = dh / 5;

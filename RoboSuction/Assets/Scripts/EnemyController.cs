@@ -21,10 +21,10 @@ public class EnemyController : MonoBehaviour {
     public float flipSpeed = 90f;
     public float enemyWidth = 0.75f;
     public int damage = 10;
-    int health = 3;
+    public int health = 3;
 
     public float attackTimer;
-    public float attackTime =1f;
+    public float attackTime = 1f;
     float stunTime = .5f;
     float stunTimer;
     public float dirDetectionDelta = 0.1f;
@@ -45,8 +45,8 @@ public class EnemyController : MonoBehaviour {
     void Awake() {
         rb = GetComponent<Rigidbody>();
         batLayer = LayerMask.NameToLayer("Bat");
-        //player = GameObject.Find("VRCamera").transform;
-        player = GameObject.Find("FollowHead").transform;
+        player = GameObject.Find("VRCamera").transform;
+        //player = GameObject.Find("FollowHead").transform;
         stunTimer = stunTime;
         attackTimer = attackTime;
         gm = FindObjectOfType<GameManager>();
@@ -102,13 +102,13 @@ public class EnemyController : MonoBehaviour {
     void Flip() {
         targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, Vector3.up), Vector3.up);
         rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, flipSpeed * Time.deltaTime);
-        if (Vector3.Angle(transform.up, Vector3.up) < 1) {
+        if(Vector3.Angle(transform.up, Vector3.up) < 1) {
             rb.rotation = targetRot;
         }
     }
 
     void AdjustHoverHeight() {
-        targetPos = transform.position + Vector3.up * Time.deltaTime * moveSpeed * (transform.position.y < hoverHeight ? 1:-1);
+        targetPos = transform.position + Vector3.up * Time.deltaTime * moveSpeed * (transform.position.y < hoverHeight ? 1 : -1);
         rb.MovePosition(targetPos);
     }
 
@@ -135,7 +135,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     bool CheckHoverHeight() {
-        if(transform.position.y < hoverHeight - hoverHeightTolerance || transform.position.y > hoverHeight + hoverHeightTolerance) {      
+        if(transform.position.y < hoverHeight - hoverHeightTolerance || transform.position.y > hoverHeight + hoverHeightTolerance) {
             return true;
         } else {
             return false;
@@ -162,10 +162,13 @@ public class EnemyController : MonoBehaviour {
             botmode = BotMode.Stunned;
             health -= 1;
             Enemy.PlayOneShot(HurtSound);
-            if (health < 1)
+            if(health < 1) {
                 gm.SetHealth(1);
-            //Enemy.PlayOneShot(DieSound);
+                //Enemy.PlayOneShot(DieSound);
                 Destroy(gameObject, 2f);
+                gm.SetKillText();
+                gm.enemiesKilled++;
+            }
         }
     }
 

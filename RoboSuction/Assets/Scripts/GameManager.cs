@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour {
 
         if((int)waveInfo[waveNumber].x >= enemiesSpawned) {
             int spawnpointIndex = Random.Range(0, spawnPoints.Length);
-            int enemyIndex = Random.Range((int)waveInfo[waveNumber].z, (int)waveInfo[waveNumber].w);
+            int enemyIndex = Random.Range((int)waveInfo[waveNumber].z, (int)waveInfo[waveNumber].w + 1);
             print("EnemyIndex:" + enemyIndex);
             spawnTimer = waveInfo[waveNumber].y;
 

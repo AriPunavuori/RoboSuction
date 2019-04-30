@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour {
     public float flipSpeed = 90f;
     public float enemyWidth = 0.75f;
     public int damage = 10;
-    int health = 3;
+    public int health = 3;
 
     public float attackTimer;
     public float attackTime = 1f;

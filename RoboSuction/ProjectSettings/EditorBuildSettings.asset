@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Mira.unity
+    guid: a7f2bcadd89e8ef499e0be170b2ddeb8
   m_configObjects: {}

@@ -14,27 +14,26 @@ public class Patonki : MonoBehaviour {
     float feedbackFrequency = 200;
     float feedbackLength  = .15f;
 
-    private void Awake() {
-        interactable = GetComponent<Interactable>();    
+    void OnCollisionEnter(Collision collision) {
+        FeedBack();
+        var point = collision.GetContact(0);
+        var go = collision.gameObject;
+        var sparky = Instantiate(spark, point.point, Quaternion.identity);
+        sparky.transform.SetParent(go.transform);
+        sparky.GetComponent<ParticleSystem>().Play();
+        Destroy(spark, 3f);
     }
 
-    private void OnTriggerEnter(Collider other) {
-        print("Feedback");
-        if(isRightHand)
+    public void FeedBack() {
+        if (isRightHand)
             touchFeedback.Execute(0, feedbackLength, feedbackFrequency, feedbackAmplitude, SteamVR_Input_Sources.RightHand);
         else
             touchFeedback.Execute(0, feedbackLength, feedbackFrequency, feedbackAmplitude, SteamVR_Input_Sources.LeftHand);
-
-    }
-
-    void OnCollisionEnter(Collision collision) {
-        var point = collision.GetContact(0);
-        spark = Instantiate(spark, point.point, Quaternion.identity);
-        spark.GetComponent<ParticleSystem>().Play();
     }
 
     public void PowerOn() {
         powerOnEffects.gameObject.SetActive(true);
+        FeedBack();
     }
 
     public void PowerOff() {

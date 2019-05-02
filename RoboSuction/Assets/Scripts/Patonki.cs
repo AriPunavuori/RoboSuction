@@ -21,7 +21,7 @@ public class Patonki : MonoBehaviour {
         var sparky = Instantiate(spark, point.point, Quaternion.identity);
         sparky.transform.SetParent(go.transform);
         sparky.GetComponent<ParticleSystem>().Play();
-        Destroy(spark, 3f);
+        Destroy(spark, 3f); // Jos mailoissa, niin ei tuhoudu
     }
 
     public void FeedBack() {

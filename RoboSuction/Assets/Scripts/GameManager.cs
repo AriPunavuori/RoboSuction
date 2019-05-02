@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     float textTimer;
     float textTime = 10f;
     public bool gameEnded;
-    bool waitingForKills;
+    public bool waitingForKills;
     float spawnTime = 1f;
 
     private void Start() {

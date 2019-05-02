@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     public int enemiesSpawned;
     public int enemiesKilled = 0;
     public List<string> waveName;
-    int waveNumber = 0;
+    public int waveNumber = 0;
     public GameObject player;
     public Slider healthBar;
     float spawnTimer = 10f;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
     public bool waveStarted;
     float textTimer;
     float textTime = 10f;
-    bool gameEnded;
+    public bool gameEnded;
     bool waitingForKills;
     float spawnTime = 1f;
 

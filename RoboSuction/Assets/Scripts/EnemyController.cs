@@ -157,7 +157,7 @@ public class EnemyController : MonoBehaviour {
 
 
     private void OnTriggerEnter(Collider other) {
-        if (!botKilled)
+        if (!botKilled&&!Stunned())
         {
             if (other.gameObject.layer == batLayer)
             {
@@ -171,9 +171,17 @@ public class EnemyController : MonoBehaviour {
                     botKilled = true;
                     gm.SetHealth(1);
                     Enemy.PlayOneShot(DieSound);
-                    Destroy(gameObject, .5f);
+                    
                     gm.enemiesKilled++;
                     gm.SetKillText();
+                    if(gm.waveNumber == gm.waveInfo.Length && gm.enemiesSpawned == gm.enemiesKilled) {
+                        rb.velocity = Vector3.zero;
+                        rb.freezeRotation = true;
+                        rb.isKinematic = true;
+                    } else {
+                        Destroy(gameObject, .5f);
+
+                    }
                 }
             }
         }

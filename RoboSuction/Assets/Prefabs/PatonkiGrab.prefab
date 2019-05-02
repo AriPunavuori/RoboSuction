@@ -145,6 +145,7 @@ MonoBehaviour:
     needsReinit: 0
   isRightHand: 1
   powerOnEffects: {fileID: 8327467726907801747}
+  spark: {fileID: 5408036040069861412, guid: 3d0aa670b38bd5a4a9640512f39b459a, type: 3}
 --- !u!114 &1692997559
 MonoBehaviour:
   m_ObjectHideFlags: 0

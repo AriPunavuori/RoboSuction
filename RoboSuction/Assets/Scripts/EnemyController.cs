@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Start() {
-        Enemy.PlayOneShot(SpawnSound, 0.01f);
+        Enemy.PlayOneShot(SpawnSound, 0.1f);
     }
 
     void FixedUpdate() {

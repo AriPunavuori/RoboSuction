@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Start() {
-        Enemy.PlayOneShot(SpawnSound, 0.01f);
+        Enemy.PlayOneShot(SpawnSound, 0.03f);
     }
 
     void FixedUpdate() {
@@ -170,7 +170,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     botKilled = true;
                     gm.SetHealth(1);
-                    Enemy.PlayOneShot(DieSound);
+                    Enemy.PlayOneShot(DieSound, 0.5f);
                     Destroy(gameObject, .5f);
                     gm.enemiesKilled++;
                     gm.SetKillText();

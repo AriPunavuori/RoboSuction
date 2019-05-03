@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6255024136826544527, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a55096e794f4d5e41944ceee8610cb35, type: 3}
 --- !u!1 &84678122
@@ -890,7 +895,7 @@ MonoBehaviour:
   m_text: "Thank You For Playing:\n\nRobo Suction\n\n\n\n\n\nTeam:\n\nGraphical Artist\nMira
     Kainulainen\n\n\n\nAudio Artist\nLeo Virolainen\n\n\n\nProgramming Artist\nAri
     Punavuori\n\n\n\nHilbert Artist\nYrj\xF6 Peussa\n\n\n\n\nThats all folks!\n\n\n\n\n\nNothing
-    to see here!\n\n\n\n\n4 realz\n\n\n\n\n\n\n\n...Take the mask of now "
+    to see here!\n\n\n\n\n4 realz\n\n\n\n\n\n\n\n...Take the mask off now "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -959,7 +964,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -4.3757505, w: 0}
   m_textInfo:
     textComponent: {fileID: 762583559}
-    characterCount: 270
+    characterCount: 271
     spriteCount: 0
     spaceCount: 73
     wordCount: 37
@@ -1070,6 +1075,11 @@ PrefabInstance:
     - target: {fileID: 8372067122779711998, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255024136826544527, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3384792179243665330, guid: a55096e794f4d5e41944ceee8610cb35,
@@ -1976,7 +1986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293342593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1747568307}

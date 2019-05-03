@@ -14,6 +14,11 @@ public class Patonki : MonoBehaviour {
     float feedbackFrequency = 200;
     float feedbackLength  = .15f;
 
+    int enemyLayer;
+    private void Awake() {
+        enemyLayer = LayerMask.NameToLayer("Enemy");
+    }
+
     void OnCollisionEnter(Collision collision) {
         FeedBack();
         var point = collision.GetContact(0);
@@ -22,6 +27,10 @@ public class Patonki : MonoBehaviour {
         sparky.transform.SetParent(go.transform);
         sparky.GetComponent<ParticleSystem>().Play();
         Destroy(spark, 3f); // Jos mailoissa, niin ei tuhoudu
+        if(go.layer == enemyLayer) {
+            var bc = go.GetComponent<EnemyController>();
+            bc.BotHit();
+        }
     }
 
     public void FeedBack() {

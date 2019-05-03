@@ -14,6 +14,14 @@ public class EnemyController : MonoBehaviour {
 
     GameManager gm;
     public BotMode botmode;
+    public GameObject leftArm;
+    public GameObject rightArm;
+    public GameObject upperBody;
+    public GameObject lowerBody;
+    Rigidbody larb;
+    Rigidbody rarb;
+    Rigidbody ubrb;
+    Rigidbody lbrb;
     public float hoverHeight = 0.75f;
     public float hoverHeightTolerance = 0.1f;
     public float moveSpeed = 10f;
@@ -52,6 +60,10 @@ public class EnemyController : MonoBehaviour {
         stunTimer = stunTime;
         attackTimer = attackTime;
         gm = FindObjectOfType<GameManager>();
+        larb = leftArm.GetComponent<Rigidbody>();
+        rarb = rightArm.GetComponent<Rigidbody>();
+        ubrb = upperBody.GetComponent<Rigidbody>();
+        lbrb = lowerBody.GetComponent<Rigidbody>();
     }
 
     private void Start() {
@@ -154,42 +166,45 @@ public class EnemyController : MonoBehaviour {
         return targetVector.magnitude > enemyWidth;
     }
 
+    //private void OnTriggerEnter(Collider other) {
+    //    if(other.gameObject.layer == batLayer) {
+    //        BotHit();
+    //    }
+    //}
 
-
-    private void OnTriggerEnter(Collider other) {
-        if (!botKilled&&!Stunned())
-        {
-            if (other.gameObject.layer == batLayer)
-            {
-                stunTimer = stunTime;
-                rb.useGravity = true;
-                botmode = BotMode.Stunned;
-                health -= 1;
-                Enemy.PlayOneShot(HurtSound);
-                if (health < 1)
-                {
-                    botKilled = true;
-                    gm.SetHealth(1);
-                    Enemy.PlayOneShot(DieSound, 0.4f);
-                    
-                    gm.enemiesKilled++;
-                    gm.SetKillText();
-                    //if(gm.waveNumber == gm.waveInfo.Length && gm.enemiesSpawned == gm.enemiesKilled-1) {
-                    //    rb.velocity = Vector3.zero;
-                    //    rb.freezeRotation = true;
-                    //    rb.isKinematic = true;
-                    //    stunTimer = Mathf.Infinity;
-                    //    bot
-                    //} else {
-                        Destroy(gameObject, .5f);
-                    //}
-                }
-            }
-        }
-        
+    void BreakBot() {
+        larb.isKinematic = false;
+        leftArm.transform.SetParent(null);
+        Destroy(leftArm, 3f);
+        rarb.isKinematic = false;
+        rightArm.transform.SetParent(null);
+        Destroy(rightArm, 3f);
+        ubrb.isKinematic = false;
+        upperBody.transform.SetParent(null);
+        Destroy(upperBody, 3f);
+        lbrb.isKinematic = false;
+        lowerBody.transform.SetParent(null);
+        Destroy(lowerBody, 3f);
     }
 
-    private void OnCollisionEnter(Collision collision) {
+    public void BotHit() {
+        if(!botKilled && !Stunned()) {
+            stunTimer = stunTime;
+            rb.useGravity = true;
+            botmode = BotMode.Stunned;
+            health -= 1;
+            Enemy.PlayOneShot(HurtSound);
 
+            if(health < 1) {
+                botKilled = true;
+                gm.SetHealth(1);
+                Enemy.PlayOneShot(DieSound, 0.4f);
+
+                gm.enemiesKilled++;
+                gm.SetKillText();
+                BreakBot();
+                Destroy(gameObject, .5f);
+            }
+        }
     }
 }

@@ -9,10 +9,10 @@ FBXHeaderExtension:  {
 		Year: 2019
 		Month: 5
 		Day: 3
-		Hour: 10
-		Minute: 58
-		Second: 46
-		Millisecond: 873
+		Hour: 11
+		Minute: 25
+		Second: 38
+		Millisecond: 115
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "03/05/2019 07:58:46.873"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "03/05/2019 08:25:38.114"
 			P: "Original|FileName", "KString", "", "", "D:\RoboSuction_3D\export\Robot_Broken.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "03/05/2019 07:58:46.873"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "03/05/2019 08:25:38.114"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "D:\RoboSuction_3D"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "D:\RoboSuction_3D\scenes\Robot_1_Broken.max"
 		}
@@ -60,11 +60,11 @@ GlobalSettings:  {
 		P: "UnitScaleFactor", "double", "Number", "",2.54
 		P: "OriginalUnitScaleFactor", "double", "Number", "",2.54
 		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
-		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
+		P: "DefaultCamera", "KString", "", "", "Producer Front"
 		P: "TimeMode", "enum", "", "",6
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
-		P: "TimeSpanStart", "KTime", "Time", "",0
+		P: "TimeSpanStart", "KTime", "Time", "",-6158154400
 		P: "TimeSpanStop", "KTime", "Time", "",76976930000
 		P: "CustomFrameRate", "double", "Number", "",-1
 		P: "TimeMarker", "Compound", "", ""
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1295252208768, "", "Scene" {
+	Document: 3015517659232, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -289,7 +289,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 1295628472000, "Geometry::", "Mesh" {
+	Geometry: 3015529380960, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.0235294117647059,0.529411764705882,0.0235294117647059
 		}
@@ -401,7 +401,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1295628474720, "Geometry::", "Mesh" {
+	Geometry: 3015529383680, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.0235294117647059,0.529411764705882,0.0235294117647059
 		}
@@ -483,7 +483,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1295628475264, "Geometry::", "Mesh" {
+	Geometry: 3015529382048, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.105882352941176,0.694117647058824,0.105882352941176
 		}
@@ -566,7 +566,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1295628468736, "Geometry::", "Mesh" {
+	Geometry: 3015529382592, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.0235294117647059,0.529411764705882,0.0235294117647059
 		}
@@ -648,7 +648,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1295628472544, "Geometry::", "Mesh" {
+	Geometry: 3015529380416, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.105882352941176,0.694117647058824,0.105882352941176
 		}
@@ -731,7 +731,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1295628469280, "Geometry::", "Mesh" {
+	Geometry: 3015529381504, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.0235294117647059,0.529411764705882,0.0235294117647059
 		}
@@ -811,7 +811,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1295319892752, "Model::Upper_Body", "Mesh" {
+	Model: 3015515685552, "Model::Upper_Body", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -820,15 +820,14 @@ Objects:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "GeometricTranslation", "Vector3D", "Vector", "",0,6.66861126319418e-08,-1.20714998245239
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",0,-8.37556838989258,-0
-			P: "Lcl Rotation", "Lcl Rotation", "", "A",4.99999944638791,-0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,-8.36214065551758,-0
 			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,0.791262269020081,1
 			P: "MaxHandle", "int", "Integer", "UH",2
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1295319903712, "Model::Arm_Right", "Mesh" {
+	Model: 3015515718432, "Model::Arm_Right", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -841,22 +840,22 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1295319912480, "Model::Hand_Right", "Mesh" {
+	Model: 3015515698704, "Model::Hand_Right", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "GeometricTranslation", "Vector3D", "Vector", "",-6.3587441444397,7.93793439865112,-12.8148078918457
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-6.28190565109253,-7.93793344497681,11.6429967880249
-			P: "Lcl Rotation", "Lcl Rotation", "", "A",178.176585178759,-16.882043129152,-179.610993375948
+			P: "Lcl Translation", "Lcl Translation", "", "A",-6.28190565109253,-7.93793487548828,11.6429967880249
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",178.176585521424,-16.8819715228135,-179.610993395722
 			P: "Lcl Scaling", "Lcl Scaling", "", "A",2.68601870536804,1.89558351039886,1.98040425777435
 			P: "MaxHandle", "int", "Integer", "UH",9
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1295319905904, "Model::Arm_Left", "Mesh" {
+	Model: 3015515731584, "Model::Arm_Left", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -869,22 +868,22 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1295317839296, "Model::Hand_Left", "Mesh" {
+	Model: 3015515727200, "Model::Hand_Left", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "GeometricTranslation", "Vector3D", "Vector", "",-6.3587441444397,7.93793439865112,-12.8148078918457
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",6.3587441444397,-7.93793344497681,11.6429967880249
-			P: "Lcl Rotation", "Lcl Rotation", "", "A",-1.82390684978734,16.8819976618686,-0.388992947706126
+			P: "Lcl Translation", "Lcl Translation", "", "A",6.3587441444397,-7.93793487548828,11.6429967880249
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-1.82390654032901,21.8820016956403,-0.388992937717405
 			P: "Lcl Scaling", "Lcl Scaling", "", "A",2.6859393119812,1.89565563201904,1.98039078712463
 			P: "MaxHandle", "int", "Integer", "UH",5
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1295317832720, "Model::Lower_Body", "Mesh" {
+	Model: 3015515725008, "Model::Lower_Body", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -897,7 +896,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 1295320610768, "Material::Robot_1_Body", "" {
+	Material: 3015528334880, "Material::Robot_1_Body", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -919,7 +918,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Material: 1295320601648, "Material::Robot_hands", "" {
+	Material: 3015528336800, "Material::Robot_hands", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -941,7 +940,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Video: 1295320609328, "Video::Map #4", "Clip" {
+	Video: 3015528333440, "Video::Map #4", "Clip" {
 		Type: "Clip"
 		Properties70:  {
 			P: "Path", "KString", "XRefUrl", "", "D:\RoboSuction_3D\sceneassets\images\Robot_11_DM.jpg"
@@ -951,7 +950,7 @@ Objects:  {
 		Filename: "D:\RoboSuction_3D\sceneassets\images\Robot_11_DM.jpg"
 		RelativeFilename: "..\sceneassets\images\Robot_11_DM.jpg"
 	}
-	Video: 1295320600688, "Video::Map #5", "Clip" {
+	Video: 3015528335360, "Video::Map #5", "Clip" {
 		Type: "Clip"
 		Properties70:  {
 			P: "Path", "KString", "XRefUrl", "", "D:\RoboSuction_3D\sceneassets\images\Robot_Hand_DM.jpg"
@@ -961,7 +960,7 @@ Objects:  {
 		Filename: "D:\RoboSuction_3D\sceneassets\images\Robot_Hand_DM.jpg"
 		RelativeFilename: "..\sceneassets\images\Robot_Hand_DM.jpg"
 	}
-	Texture: 1295320616048, "Texture::Map #4", "" {
+	Texture: 3015528334400, "Texture::Map #4", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::Map #4"
@@ -977,7 +976,7 @@ Objects:  {
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	Texture: 1295320603088, "Texture::Map #5", "" {
+	Texture: 3015528336320, "Texture::Map #5", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::Map #5"
@@ -993,9 +992,11 @@ Objects:  {
 		Texture_Alpha_Source: "Alpha_Black"
 		Cropping: 0,0,0,0
 	}
-	AnimationStack: 1295627336000, "AnimStack::Take 001", "" {
+	AnimationStack: 3015520208704, "AnimStack::Take 001", "" {
 		Properties70:  {
+			P: "LocalStart", "KTime", "Time", "",-6158154400
 			P: "LocalStop", "KTime", "Time", "",76976930000
+			P: "ReferenceStart", "KTime", "Time", "",-6158154400
 			P: "ReferenceStop", "KTime", "Time", "",76976930000
 		}
 	}
@@ -1007,68 +1008,68 @@ Objects:  {
 Connections:  {
 	
 	;Model::Upper_Body, Model::RootNode
-	C: "OO",1295319892752,0
+	C: "OO",3015515685552,0
 	
 	;Model::Arm_Right, Model::Upper_Body
-	C: "OO",1295319903712,1295319892752
+	C: "OO",3015515718432,3015515685552
 	
 	;Model::Arm_Left, Model::Upper_Body
-	C: "OO",1295319905904,1295319892752
+	C: "OO",3015515731584,3015515685552
 	
 	;Model::Lower_Body, Model::Upper_Body
-	C: "OO",1295317832720,1295319892752
+	C: "OO",3015515725008,3015515685552
 	
 	;Geometry::, Model::Upper_Body
-	C: "OO",1295628472000,1295319892752
+	C: "OO",3015529380960,3015515685552
 	
 	;Material::Robot_1_Body, Model::Upper_Body
-	C: "OO",1295320610768,1295319892752
+	C: "OO",3015528334880,3015515685552
 	
 	;Model::Hand_Right, Model::Arm_Right
-	C: "OO",1295319912480,1295319903712
+	C: "OO",3015515698704,3015515718432
 	
 	;Geometry::, Model::Arm_Right
-	C: "OO",1295628474720,1295319903712
+	C: "OO",3015529383680,3015515718432
 	
 	;Material::Robot_1_Body, Model::Arm_Right
-	C: "OO",1295320610768,1295319903712
+	C: "OO",3015528334880,3015515718432
 	
 	;Geometry::, Model::Hand_Right
-	C: "OO",1295628475264,1295319912480
+	C: "OO",3015529382048,3015515698704
 	
 	;Material::Robot_hands, Model::Hand_Right
-	C: "OO",1295320601648,1295319912480
+	C: "OO",3015528336800,3015515698704
 	
 	;Model::Hand_Left, Model::Arm_Left
-	C: "OO",1295317839296,1295319905904
+	C: "OO",3015515727200,3015515731584
 	
 	;Geometry::, Model::Arm_Left
-	C: "OO",1295628468736,1295319905904
+	C: "OO",3015529382592,3015515731584
 	
 	;Material::Robot_1_Body, Model::Arm_Left
-	C: "OO",1295320610768,1295319905904
+	C: "OO",3015528334880,3015515731584
 	
 	;Geometry::, Model::Hand_Left
-	C: "OO",1295628472544,1295317839296
+	C: "OO",3015529380416,3015515727200
 	
 	;Material::Robot_hands, Model::Hand_Left
-	C: "OO",1295320601648,1295317839296
+	C: "OO",3015528336800,3015515727200
 	
 	;Geometry::, Model::Lower_Body
-	C: "OO",1295628469280,1295317832720
+	C: "OO",3015529381504,3015515725008
 	
 	;Material::Robot_1_Body, Model::Lower_Body
-	C: "OO",1295320610768,1295317832720
+	C: "OO",3015528334880,3015515725008
 	
 	;Texture::Map #4, Material::Robot_1_Body
-	C: "OP",1295320616048,1295320610768, "DiffuseColor"
+	C: "OP",3015528334400,3015528334880, "DiffuseColor"
 	
 	;Video::Map #4, Texture::Map #4
-	C: "OO",1295320609328,1295320616048
+	C: "OO",3015528333440,3015528334400
 	
 	;Texture::Map #5, Material::Robot_hands
-	C: "OP",1295320603088,1295320601648, "DiffuseColor"
+	C: "OP",3015528336320,3015528336800, "DiffuseColor"
 	
 	;Video::Map #5, Texture::Map #5
-	C: "OO",1295320600688,1295320603088
+	C: "OO",3015528335360,3015528336320
 }

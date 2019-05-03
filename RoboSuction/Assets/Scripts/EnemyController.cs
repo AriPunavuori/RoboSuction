@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour {
     public GameObject rightArm;
     public GameObject upperBody;
     public GameObject lowerBody;
+    public GameObject intact;
     Rigidbody larb;
     Rigidbody rarb;
     Rigidbody ubrb;
@@ -37,7 +38,7 @@ public class EnemyController : MonoBehaviour {
     float stunTimer;
     public float dirDetectionDelta = 0.1f;
 
-    bool botKilled;
+    public bool botKilled;
 
     Vector3 targetVector;
 
@@ -173,18 +174,27 @@ public class EnemyController : MonoBehaviour {
     //}
 
     void BreakBot() {
+        leftArm.SetActive(true);
         larb.isKinematic = false;
         leftArm.transform.SetParent(null);
         Destroy(leftArm, 3f);
+
+        rightArm.SetActive(true);
         rarb.isKinematic = false;
         rightArm.transform.SetParent(null);
         Destroy(rightArm, 3f);
+
+        upperBody.SetActive(true);
         ubrb.isKinematic = false;
         upperBody.transform.SetParent(null);
         Destroy(upperBody, 3f);
+
+        lowerBody.SetActive(true);
         lbrb.isKinematic = false;
         lowerBody.transform.SetParent(null);
         Destroy(lowerBody, 3f);
+
+        intact.SetActive(false);
     }
 
     public void BotHit() {

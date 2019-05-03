@@ -1351,8 +1351,8 @@ MonoBehaviour:
   - {x: 2.5, y: 1, z: -5}
   - {x: -2.5, y: 1, z: -5}
   enemies:
-  - {fileID: 2891912212403068873, guid: 2e655fc68509f46cfaa275c4c59bd287, type: 3}
-  - {fileID: 5155543086335003177, guid: a271ca57e0e31a349af8b8b5a1d8cb91, type: 3}
+  - {fileID: 1886007184533518681, guid: 69c9720740521314c88ed0f0e049bde3, type: 3}
+  - {fileID: 1707187397878179224, guid: 4b4167ec7d1b97740a36a7114f848d93, type: 3}
   waveInfo:
   - {x: 5, y: 2, z: 0, w: 0}
   - {x: 20, y: 1, z: 0, w: 0}

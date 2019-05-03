@@ -26,7 +26,7 @@ public class Patonki : MonoBehaviour {
         var sparky = Instantiate(spark, point.point, Quaternion.identity);
         sparky.transform.SetParent(go.transform);
         sparky.GetComponent<ParticleSystem>().Play();
-        Destroy(spark, 3f); // Jos mailoissa, niin ei tuhoudu
+        Destroy(sparky, 3f); // Jos mailoissa, niin ei tuhoudu
         if(go.layer == enemyLayer) {
             var bc = go.GetComponent<EnemyController>();
             bc.BotHit();

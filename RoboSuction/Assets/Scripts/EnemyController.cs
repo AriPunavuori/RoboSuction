@@ -54,8 +54,8 @@ public class EnemyController : MonoBehaviour {
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
-        //player = GameObject.Find("VRCamera").transform;
-        player = GameObject.Find("FollowHead").transform;
+        player = GameObject.Find("VRCamera").transform;
+        //player = GameObject.Find("FollowHead").transform;
         stunTimer = stunTime;
         attackTimer = attackTime;
         gm = FindObjectOfType<GameManager>();
@@ -71,7 +71,7 @@ public class EnemyController : MonoBehaviour {
 
     void FixedUpdate() {
 
-        if(!Stunned()) {
+        if(!Stunned() && !gm.hasGameEnded) {
 
             if(CheckOrientation()) {
                 botmode = BotMode.Flipping;
@@ -102,10 +102,7 @@ public class EnemyController : MonoBehaviour {
         stunTimer -= Time.deltaTime;
 
         if(stunTimer < 0) {
-            rb.angularVelocity = Vector3.zero;
-            rb.velocity = Vector3.zero;
-            rb.useGravity = false;
-            botmode = BotMode.Flipping;
+            UnStun();
             return false;
         } else {
             return true;
@@ -132,6 +129,13 @@ public class EnemyController : MonoBehaviour {
     void Hunt() {
         targetPos = transform.position + targetVector.normalized * moveSpeed * Time.deltaTime;
         rb.MovePosition(targetPos);
+    }
+
+    void UnStun() {
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
+        rb.useGravity = false;
+        botmode = BotMode.Flipping;
     }
 
     void Attack() {
@@ -204,9 +208,11 @@ public class EnemyController : MonoBehaviour {
                 gm.enemiesKilled++;
                 gm.SetKillText();
                 if(gm.IsLastRound() && gm.enemiesSpawned == gm.enemiesKilled) {
-                    Time.timeScale = 0;
+                    UnStun();
+                    attackTimer = Mathf.Infinity;
                 } else {
                     BreakBot();
+                    gm.resetTimer = gm.resetTime;
                     Destroy(gameObject, .5f);
                 }
             }

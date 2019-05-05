@@ -35,16 +35,17 @@ public class GameManager : MonoBehaviour {
     public int enemiesKilled = 0;
     public int waveNumber = 0;
 
+    public float resetTimer;
+    public float resetTime = 5;
     float textTimer;
-    float textTime = 10f;
-    float spawnTimer = 10f;
-    float spawnTime = 1f;
-    float waveBreak = 5f;
+    float textTime = 5f;
+    float spawnTimer = 5f;
 
     public GameObject player;
     public Slider healthBar;
 
     public int playerHealth = 100;
+    public bool resetComing;
     public bool hasGameEnded;
 
     private void Start() {
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour {
     void Update() {
 
         if(!hasGameEnded) {
+            resetTimer -= Time.deltaTime;
             spawnTimer -= Time.deltaTime;
             textTimer -= Time.deltaTime;
 
@@ -69,29 +71,32 @@ public class GameManager : MonoBehaviour {
             }
 
             if(!EnemiesToSpawn() && !MoreEnemiesSpawnedThanKilled()) {
-                ResetWave();
+                SetUIText(infoTexts[infoTexts.Count- 3]);
+                textTimer = textTime;
+                if(resetTimer < 0) {
+                    ResetWave();
+                }
             }
         }
     }
 
     public void ResetWave() {
-
         if(IsLastRound() && !MoreEnemiesSpawnedThanKilled()) {
             hasGameEnded = true;
         }
 
         if(!hasGameEnded) {
             if(!IsLastRound())
-            waveNumber++;
+                waveNumber++;
             enemiesSpawned = 0;
             enemiesKilled = 0;
             SetUIText(infoTexts[waveNumber]);
             SetKillText();
             SetWaveText();
             textTimer = textTime;
-            spawnTimer = waveBreak;
+            spawnTimer = textTime;
         } else {
-            SetUIText(infoTexts[infoTexts.Count-2]);
+            SetUIText(infoTexts[infoTexts.Count - 2]);
         }
     }
 

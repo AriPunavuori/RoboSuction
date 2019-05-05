@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
-using Valve.VR.InteractionSystem;
 
 public class Patonki : MonoBehaviour {
-    public SteamVR_Action_Vibration touchFeedback;
-    public bool isRightHand;
+
     public GameObject powerOnEffects;
     public GameObject spark;
-    Interactable interactable;
+    public SteamVR_Action_Vibration touchFeedback;
+
     float feedbackAmplitude = 75;
     float feedbackFrequency = 200;
-    float feedbackLength  = .15f;
+    float feedbackLength = .15f;
+
+    public bool isRightHand;
 
     int enemyLayer;
+
     private void Awake() {
         enemyLayer = LayerMask.NameToLayer("Enemy");
     }
@@ -26,7 +28,7 @@ public class Patonki : MonoBehaviour {
         var sparky = Instantiate(spark, point.point, Quaternion.identity);
         sparky.transform.SetParent(go.transform);
         sparky.GetComponent<ParticleSystem>().Play();
-        Destroy(sparky, 3f); // Jos mailoissa, niin ei tuhoudu
+        Destroy(sparky, 3f);
         if(go.layer == enemyLayer) {
             var bc = go.GetComponent<EnemyController>();
             bc.BotHit();

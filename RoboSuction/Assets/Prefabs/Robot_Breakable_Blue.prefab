@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8602896779179086021}
   - component: {fileID: 3867700511589420722}
   - component: {fileID: 4720656181128422692}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hand_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 676765262877923266}
   - component: {fileID: 8668004294048454952}
   - component: {fileID: 7584505387926750830}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Arm_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 3389976098612027215}
   - component: {fileID: 5932492934904901798}
   - component: {fileID: 2412138938621910043}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Broken_lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 2834687405896108343}
   - component: {fileID: 480926661693912647}
   - component: {fileID: 2178970811498115657}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Broken_Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 8573139154723351488}
   - component: {fileID: 6810433848656310953}
   - component: {fileID: 4811197168591478177}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hand_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25538,7 +25538,7 @@ GameObject:
   - component: {fileID: 732325818368031421}
   - component: {fileID: 2125854222330579061}
   - component: {fileID: 4545146238473350800}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Arm_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

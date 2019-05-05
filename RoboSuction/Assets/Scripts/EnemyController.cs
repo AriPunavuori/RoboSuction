@@ -51,13 +51,11 @@ public class EnemyController : MonoBehaviour {
 
     Transform player;
 
-    int batLayer;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
-        batLayer = LayerMask.NameToLayer("Bat");
-        player = GameObject.Find("VRCamera").transform;
-        //player = GameObject.Find("FollowHead").transform;
+        //player = GameObject.Find("VRCamera").transform;
+        player = GameObject.Find("FollowHead").transform;
         stunTimer = stunTime;
         attackTimer = attackTime;
         gm = FindObjectOfType<GameManager>();
@@ -68,7 +66,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Start() {
-        Enemy.PlayOneShot(SpawnSound, 0.1f);
+        Enemy.PlayOneShot(SpawnSound, 0.2f);
     }
 
     void FixedUpdate() {
@@ -152,9 +150,8 @@ public class EnemyController : MonoBehaviour {
     bool CheckHoverHeight() {
         if(transform.position.y < hoverHeight - hoverHeightTolerance || transform.position.y > hoverHeight + hoverHeightTolerance) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     bool CheckDirection() {
@@ -166,12 +163,6 @@ public class EnemyController : MonoBehaviour {
         targetVector = Vector3.ProjectOnPlane(player.position - transform.position, Vector3.up);
         return targetVector.magnitude > enemyWidth;
     }
-
-    //private void OnTriggerEnter(Collider other) {
-    //    if(other.gameObject.layer == batLayer) {
-    //        BotHit();
-    //    }
-    //}
 
     void BreakBot() {
         leftArm.SetActive(true);
@@ -212,8 +203,12 @@ public class EnemyController : MonoBehaviour {
 
                 gm.enemiesKilled++;
                 gm.SetKillText();
-                BreakBot();
-                Destroy(gameObject, .5f);
+                if(gm.IsLastRound() && gm.enemiesSpawned == gm.enemiesKilled) {
+                    Time.timeScale = 0;
+                } else {
+                    BreakBot();
+                    Destroy(gameObject, .5f);
+                }
             }
         }
     }

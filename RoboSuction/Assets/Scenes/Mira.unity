@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
@@ -201,6 +201,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 591245198968672497, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 591245198968672497, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a55096e794f4d5e41944ceee8610cb35, type: 3}
@@ -1015,7 +1025,7 @@ PrefabInstance:
     - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
@@ -1025,7 +1035,7 @@ PrefabInstance:
     - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
@@ -1287,6 +1297,16 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 591245198968672497, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 591245198968672497, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5305670074550161348, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
       propertyPath: m_IsActive
@@ -1354,20 +1374,33 @@ MonoBehaviour:
   - {fileID: 1886007184533518681, guid: 69c9720740521314c88ed0f0e049bde3, type: 3}
   - {fileID: 1707187397878179224, guid: 4b4167ec7d1b97740a36a7114f848d93, type: 3}
   waveInfo:
-  - {x: 5, y: 2, z: 0, w: 0}
-  - {x: 20, y: 1, z: 0, w: 0}
-  - {x: 40, y: 0.75, z: 0, w: 1}
-  - {x: 60, y: 0.5, z: 1, w: 1}
+  - {x: 1, y: 2, z: 0, w: 0}
+  leveldata:
+  - numberOfEnemies: 0
+    spawnInterval: 0
+    enemies: []
+    spawnpoints: []
+  - numberOfEnemies: 0
+    spawnInterval: 0
+    enemies: []
+    spawnpoints: []
+  - numberOfEnemies: 0
+    spawnInterval: 0
+    enemies: []
+    spawnpoints: []
+  - numberOfEnemies: 0
+    spawnInterval: 0
+    enemies: []
+    spawnpoints: []
+  waveName: []
   enemiesSpawned: 0
   enemiesKilled: 0
-  waveName: []
   waveNumber: 0
   player: {fileID: 1372876237}
   healthBar: {fileID: 1739354264}
   playerHealth: 100
   waveStarted: 0
-  gameEnded: 0
-  waitingForKills: 0
+  hasGameEnded: 0
 --- !u!4 &1016001836
 Transform:
   m_ObjectHideFlags: 0

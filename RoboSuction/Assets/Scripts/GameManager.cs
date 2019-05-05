@@ -9,9 +9,9 @@ public struct LevelData {
     public int numberOfEnemies;
     public float spawnInterval;
     public GameObject[] enemies;
-    public Vector3[] spawnpoints;
+    public GameObject[] spawnpoints;
 
-    public LevelData(int nmbrfnms, float spwnntrvl, GameObject[] nms, Vector3[] spwnpts) {
+    public LevelData(int nmbrfnms, float spwnntrvl, GameObject[] nms, GameObject[] spwnpts) {
         numberOfEnemies = nmbrfnms;
         spawnInterval = spwnntrvl;
         enemies = nms;
@@ -27,13 +27,9 @@ public class GameManager : MonoBehaviour {
     public TextMeshProUGUI kills1;
     public TextMeshProUGUI kills2;
 
-    public Vector3[] spawnPoints;
-    public GameObject[] enemies;
-    public Vector4[] waveInfo;
-
     public LevelData[] leveldata;
 
-    public List<string> waveName;
+    public List<string> infoTexts;
 
     public int enemiesSpawned;
     public int enemiesKilled = 0;
@@ -49,20 +45,10 @@ public class GameManager : MonoBehaviour {
     public Slider healthBar;
 
     public int playerHealth = 100;
-    public bool waveStarted;
-
     public bool hasGameEnded;
-    //public bool waitingForKills;
-
 
     private void Start() {
-        waveName.Add("Time for Warm Up!");
-        waveName.Add("Here we go!");
-        waveName.Add("Ready 4 more?");
-        waveName.Add("Just survive!");
-        waveName.Add("You Won!");
-        waveName.Add("Your life currentcy has been sucked dry!");
-        uiText.text = waveName[waveNumber];
+        uiText.text = infoTexts[waveNumber];
         SetWaveText();
         SetKillText();
         textTimer = textTime;
@@ -99,22 +85,22 @@ public class GameManager : MonoBehaviour {
             waveNumber++;
             enemiesSpawned = 0;
             enemiesKilled = 0;
-            SetUIText(waveName[waveNumber]);
+            SetUIText(infoTexts[waveNumber]);
             SetKillText();
             SetWaveText();
             textTimer = textTime;
             spawnTimer = waveBreak;
         } else {
-            SetUIText(waveName[waveName.Count-2]);
+            SetUIText(infoTexts[infoTexts.Count-2]);
         }
     }
 
     public bool EnemiesToSpawn() {
-        return (int)waveInfo[waveNumber].x > enemiesSpawned && !hasGameEnded;
+        return leveldata[waveNumber].numberOfEnemies > enemiesSpawned && !hasGameEnded;
     }
 
     public bool IsLastRound() {
-        return waveNumber >= waveInfo.Length - 1;
+        return waveNumber >= leveldata.Length - 1;
     }
 
     public bool MoreEnemiesSpawnedThanKilled() {
@@ -122,13 +108,14 @@ public class GameManager : MonoBehaviour {
     }
 
     public void EnemySpawner() {
-        int spawnpointIndex = Mathf.Clamp(Random.Range(0, waveNumber * 2 + 2), 0, spawnPoints.Length);
-        int enemyIndex = Random.Range((int)waveInfo[waveNumber].z, (int)waveInfo[waveNumber].w + 1);
-        var f = Vector3.ProjectOnPlane(player.transform.position - spawnPoints[spawnpointIndex], Vector3.up);
+        var spawnpointIndex = Random.Range(0,leveldata[waveNumber].spawnpoints.Length);
+        var spawnPoint = leveldata[waveNumber].spawnpoints[spawnpointIndex].transform.position;
+        var enemyIndex = Random.Range(0,leveldata[waveNumber].enemies.Length);
+        var enemy = leveldata[waveNumber].enemies[enemyIndex];
+        var f = Vector3.ProjectOnPlane(player.transform.position - spawnPoint, Vector3.up);
+        Instantiate(enemy, spawnPoint, Quaternion.LookRotation(f));
 
-        Instantiate(enemies[enemyIndex], spawnPoints[spawnpointIndex], Quaternion.LookRotation(f));
-
-        spawnTimer = waveInfo[waveNumber].y;
+        spawnTimer = leveldata[waveNumber].spawnInterval;
         enemiesSpawned++;
     }
 
@@ -141,7 +128,7 @@ public class GameManager : MonoBehaviour {
 
         healthBar.value = dh / 5;
         if(playerHealth < 1) {
-            uiText.text = waveName[waveName.Count - 1];
+            uiText.text = infoTexts[infoTexts.Count - 1];
             textTimer = textTime;
             Time.timeScale = 0;
         }

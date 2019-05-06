@@ -66,7 +66,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Start() {
-        Enemy.PlayOneShot(SpawnSound, 0.2f);
+        Enemy.PlayOneShot(SpawnSound, 0.4f);
     }
 
     void FixedUpdate() {
@@ -203,8 +203,6 @@ public class EnemyController : MonoBehaviour {
             if(health < 1) {
                 botKilled = true;
                 gm.SetHealth(1);
-                Enemy.PlayOneShot(DieSound, 0.4f);
-
                 gm.enemiesKilled++;
                 gm.SetKillText();
                 if(gm.IsLastRound() && gm.enemiesSpawned == gm.enemiesKilled) {
@@ -213,7 +211,7 @@ public class EnemyController : MonoBehaviour {
                 } else {
                     BreakBot();
                     gm.resetTimer = gm.resetTime;
-                    Destroy(gameObject, .5f);
+                    Destroy(gameObject, .75f);
                 }
             }
         }

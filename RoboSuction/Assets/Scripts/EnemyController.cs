@@ -76,19 +76,13 @@ public class EnemyController : MonoBehaviour {
             if(CheckOrientation()) {
                 botmode = BotMode.Flipping;
                 Flip();
-                return;
-            }
-            if(CheckHoverHeight()) {
+            } else if(CheckHoverHeight()) {
                 botmode = BotMode.AdjustingHoverHeight;
                 AdjustHoverHeight();
-                return;
-            }
-            if(CheckDirection()) {
+            } else if(CheckDirection()) {
                 botmode = BotMode.Turning;
                 Turn();
-                return;
-            }
-            if(CheckAttackDistance()) {
+            } else if(CheckAttackDistance()) {
                 botmode = BotMode.Hunting;
                 Hunt();
             } else {

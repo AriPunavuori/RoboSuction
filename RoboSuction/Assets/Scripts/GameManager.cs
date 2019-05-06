@@ -135,6 +135,7 @@ public class GameManager : MonoBehaviour {
         if(playerHealth < 1) {
             uiText.text = infoTexts[infoTexts.Count - 1];
             textTimer = textTime;
+            hasGameEnded = true;
             Time.timeScale = 0;
         }
     }

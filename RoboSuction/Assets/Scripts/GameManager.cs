@@ -28,8 +28,11 @@ public class GameManager : MonoBehaviour {
     public TextMeshProUGUI kills2;
 
     public LevelData[] leveldata;
-
+    public GameObject space;
     public List<string> infoTexts;
+
+    public AudioSource gmAudio;
+    public AudioClip music;
 
     public int enemiesSpawned;
     public int enemiesKilled = 0;
@@ -49,13 +52,6 @@ public class GameManager : MonoBehaviour {
     public bool hasGameStarted;
     public bool hasGameEnded;
     public int sticksInHand;
-
-    private void Start() {
-        uiText.text = infoTexts[waveNumber];
-        SetWaveText();
-        SetKillText();
-        textTimer = textTime;
-    }
 
     void Update() {
 
@@ -144,9 +140,19 @@ public class GameManager : MonoBehaviour {
 
     public void CountSticksInHand(int i) {
         sticksInHand += i;
-        if(i > 1) {
+        if(sticksInHand > 1 && !hasGameStarted) {
             hasGameStarted = true;
+            StartGame();
         }
+    }
+
+    void StartGame() {
+        uiText.text = infoTexts[waveNumber];
+        SetWaveText();
+        SetKillText();
+        textTimer = textTime;
+        gmAudio.PlayOneShot(music);
+        space.SetActive(true);
     }
 
     public void SetUIText(string text) {

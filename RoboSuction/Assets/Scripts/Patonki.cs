@@ -8,6 +8,7 @@ public class Patonki : MonoBehaviour {
     public GameObject powerOnEffects;
     public GameObject spark;
     public SteamVR_Action_Vibration touchFeedback;
+    GameManager gm;
 
     float feedbackAmplitude = 75;
     float feedbackFrequency = 200;
@@ -19,6 +20,7 @@ public class Patonki : MonoBehaviour {
 
     private void Awake() {
         enemyLayer = LayerMask.NameToLayer("Enemy");
+        gm = FindObjectOfType<GameManager>();
     }
 
     void OnCollisionEnter(Collision collision) {
@@ -44,11 +46,13 @@ public class Patonki : MonoBehaviour {
 
     public void PowerOn() {
         powerOnEffects.gameObject.SetActive(true);
+        gm.CountSticksInHand(1);
         FeedBack();
     }
 
     public void PowerOff() {
         powerOnEffects.gameObject.SetActive(false);
+        gm.CountSticksInHand(-1);
     }
 }
 

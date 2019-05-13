@@ -46,7 +46,9 @@ public class GameManager : MonoBehaviour {
 
     public int playerHealth = 100;
     public bool resetComing;
+    public bool hasGameStarted;
     public bool hasGameEnded;
+    public int sticksInHand;
 
     private void Start() {
         uiText.text = infoTexts[waveNumber];
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
 
-        if(!hasGameEnded) {
+        if(!hasGameEnded && hasGameStarted) {
             resetTimer -= Time.deltaTime;
             spawnTimer -= Time.deltaTime;
             textTimer -= Time.deltaTime;
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour {
             }
 
             if(!EnemiesToSpawn() && !MoreEnemiesSpawnedThanKilled()) {
-                SetUIText(infoTexts[infoTexts.Count- 3]);
+                SetUIText(infoTexts[infoTexts.Count - 3]);
                 textTimer = textTime;
                 if(resetTimer < 0) {
                     ResetWave();
@@ -113,9 +115,9 @@ public class GameManager : MonoBehaviour {
     }
 
     public void EnemySpawner() {
-        var spawnpointIndex = Random.Range(0,leveldata[waveNumber].spawnpoints.Length);
+        var spawnpointIndex = Random.Range(0, leveldata[waveNumber].spawnpoints.Length);
         var spawnPoint = leveldata[waveNumber].spawnpoints[spawnpointIndex].transform.position;
-        var enemyIndex = Random.Range(0,leveldata[waveNumber].enemies.Length);
+        var enemyIndex = Random.Range(0, leveldata[waveNumber].enemies.Length);
         var enemy = leveldata[waveNumber].enemies[enemyIndex];
         var f = Vector3.ProjectOnPlane(player.transform.position - spawnPoint, Vector3.up);
         Instantiate(enemy, spawnPoint, Quaternion.LookRotation(f));
@@ -137,6 +139,13 @@ public class GameManager : MonoBehaviour {
             textTimer = textTime;
             hasGameEnded = true;
             Time.timeScale = 0;
+        }
+    }
+
+    public void CountSticksInHand(int i) {
+        sticksInHand += i;
+        if(i > 1) {
+            hasGameStarted = true;
         }
     }
 

@@ -2096,6 +2096,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240093, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240093, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fcaaaf83d96055749adce0d48461955e, type: 3}
     - target: {fileID: 7488527105022240092, guid: da00ef732d7164240ad028d264c1f629,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2321,15 +2331,5 @@ PrefabInstance:
       propertyPath: gmAudio
       value: 
       objectReference: {fileID: 1244881631}
-    - target: {fileID: 7488527105022240093, guid: da00ef732d7164240ad028d264c1f629,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7488527105022240093, guid: da00ef732d7164240ad028d264c1f629,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

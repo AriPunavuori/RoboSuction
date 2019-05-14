@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour {
         SetWaveText();
         SetKillText();
         textTimer = textTime;
-        gmAudio.PlayOneShot(music);
+        gmAudio.Play();
         space.SetActive(true);
     }
 

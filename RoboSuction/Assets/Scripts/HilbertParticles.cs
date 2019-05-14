@@ -4,16 +4,44 @@ using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
 public class HilbertParticles : MonoBehaviour {
-    ParticleSystem ps;
-
-    ParticleSystem.Particle[] particles;
-
-    // Hilbert implementation assumes this is power of 2?
-    public int n = 16;
-
+    
+    [Range(1, 8)]
+    public int gridComplexity = 3;
     public float dSpeed = 100f;
 
+    // Hilbert implementation assumes this is power of 2
+    int n;
+    ParticleSystem ps;
+    ParticleSystem.Particle[] particles;
+    int newParticlesToAdd = 0;
+
+    void Emit(int n) {
+        newParticlesToAdd += n;
+    }
+    Vector3 RandomizeParticlePosition() {
+        var d = Random.Range(0, n*n - 1);
+        int x = 0;
+        int y = 0;
+        d2xy(n, d, ref x, ref y);
+        //return new Vector3(2f, 0, 2f);
+        return new Vector3(x, 0, y);
+    }
+    ParticleSystem.Particle makeParticle(Vector3 position) {
+        ParticleSystem.Particle r = new ParticleSystem.Particle();
+        //r.angularVelocity = part_angularVelocity;
+        //r.color = part_color;
+        r.remainingLifetime = 2f;// part_lifetime;
+        r.position = position;
+        //r.rotation = part_rotation;
+        //r.size = part_size;
+        r.startLifetime = 2f; // part_startLifetime;
+        //r.velocity = part_velocity;
+
+        return r;
+    }
+
     void Awake() {
+        n = 2 << gridComplexity;
         ps = GetComponent<ParticleSystem>();
         if (particles == null || particles.Length < ps.main.maxParticles)
             particles = new ParticleSystem.Particle[ps.main.maxParticles];
@@ -22,27 +50,36 @@ public class HilbertParticles : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space))
-            ps.Emit(1);
-
+            Emit(1);
+        if (newParticlesToAdd > 0) {
+            ps.Emit(newParticlesToAdd);
+        }
         int count = ps.GetParticles(particles);
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count-newParticlesToAdd; i++) {
             var p = particles[i].position;
-            int x1 = Mathf.RoundToInt(p.x);
-            int y1 = Mathf.RoundToInt(p.z);
+            var x1 = Mathf.RoundToInt(p.x);
+            var y1 = Mathf.RoundToInt(p.z);
             int d1 = xy2d(n, x1, y1);
             // find the other point of the current curve segment
             int d0 = d1 - 1, d2 = d1 + 1;
             int x0 = 0, y0 = 0, x2 = 0, y2 = 0;
             d2xy(n, d0, ref x0, ref y0);
             d2xy(n, d2, ref x2, ref y2);
-            bool d0closer = Mathf.Abs(x1 - x0) + Mathf.Abs(y1 - y0) <
-                Mathf.Abs(x2 - x1) + Mathf.Abs(y2 - y1);
-            var from = d0closer ? new Vector3(x0, 0, y0) : new Vector3(x1, 0, y1);
+            bool d0closer = (p.x - x0) * (p.x - x0) + (p.z - y0) * (p.z - y0) <
+                (x2 - p.x) * (x2 - p.x) + (y2 - p.z) * (y2 - p.z);
             var to = d0closer ? new Vector3(x1, 0, y1) : new Vector3(x2, 0, y2);
-            var dp = (to - from).normalized * Time.deltaTime * dSpeed;
-            particles[i].position = p + dp;
+            particles[i].position = Vector3.MoveTowards(p, to, Time.deltaTime * dSpeed);
         }
-        ps.SetParticles(particles);
+        for (int i=count-newParticlesToAdd; i<count; i++) {
+            particles[i].position = RandomizeParticlePosition();
+        }
+        newParticlesToAdd = 0;
+        //while (newParticlesToAdd > 0) {
+        //    particles[count] = makeParticle(RandomizeParticlePosition());
+        //    count++;
+        //    newParticlesToAdd--;
+        //}
+        ps.SetParticles(particles, count);
     }
 
     // https://www.reddit.com/r/learnprogramming/comments/3lb1gf/hilbert_curve_in_c/

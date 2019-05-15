@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour {
     public GameObject upperBody;
     public GameObject lowerBody;
     public GameObject intact;
+
     Rigidbody larb;
     Rigidbody rarb;
     Rigidbody ubrb;
@@ -31,7 +32,10 @@ public class EnemyController : MonoBehaviour {
     public float enemyWidth = 0.75f;
     public int damage = 10;
     public int health = 3;
-
+    public float noiseScale = 0.05f;
+    public Vector2 attackNoiseScale = new Vector2(0.2f, 0.2f);
+    float noiseTimer;
+    float originalY;
     public float attackTimer;
     public float attackTime = 1f;
     float stunTime = .5f;
@@ -53,6 +57,7 @@ public class EnemyController : MonoBehaviour {
 
 
     void Awake() {
+        originalY = intact.transform.localPosition.y;
         rb = GetComponent<Rigidbody>();
         player = GameObject.Find("VRCamera").transform;
         //player = GameObject.Find("FollowHead").transform;
@@ -83,6 +88,9 @@ public class EnemyController : MonoBehaviour {
                 botmode = BotMode.Turning;
                 Turn();
             } else if(CheckAttackDistance()) {
+                if(botmode != BotMode.Hunting) {
+                    noiseTimer = 0;
+                }
                 botmode = BotMode.Hunting;
                 Hunt();
             } else {
@@ -121,6 +129,9 @@ public class EnemyController : MonoBehaviour {
     }
 
     void Hunt() {
+        noiseTimer += Time.deltaTime;
+        var heightShift = Mathf.PerlinNoise(0, noiseTimer);
+        intact.transform.localPosition = Vector3.up * (heightShift * noiseScale + originalY);
         targetPos = transform.position + targetVector.normalized * moveSpeed * Time.deltaTime;
         rb.MovePosition(targetPos);
     }
@@ -134,6 +145,11 @@ public class EnemyController : MonoBehaviour {
 
     void Attack() {
         attackTimer -= Time.deltaTime;
+        var t = attackTime - attackTimer;
+        //var heightShift = Mathf.PerlinNoise(0, t);
+        var sideShift = Mathf.PerlinNoise(0, t);
+        intact.transform.localPosition = Vector3.right * sideShift * attackNoiseScale.x + 
+            Vector3.up * (Mathf.Sin(t * 6) * attackNoiseScale.y + originalY);
         if(attackTimer < 0) {
             gm.SetHealth(-damage);
             attackTimer = attackTime;

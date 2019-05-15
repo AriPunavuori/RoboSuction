@@ -35,8 +35,10 @@ public class EnemyController : MonoBehaviour {
     public float noiseScale = 0.05f;
     public Vector2 attackNoiseScale = new Vector2(0.2f, 0.2f);
     float noiseTimer;
-    float originalY;
-    public float attackTimer;
+    public float originalY;
+    bool heightAdjusted;
+    bool huntEnded;
+    public float attackTimer = 0;
     public float attackTime = 1f;
     float stunTime = .5f;
     float stunTimer;
@@ -62,7 +64,7 @@ public class EnemyController : MonoBehaviour {
         player = GameObject.Find("VRCamera").transform;
         //player = GameObject.Find("FollowHead").transform;
         stunTimer = stunTime;
-        attackTimer = attackTime;
+        //attackTimer = attackTime;
         gm = FindObjectOfType<GameManager>();
         larb = leftArm.GetComponent<Rigidbody>();
         rarb = rightArm.GetComponent<Rigidbody>();
@@ -84,16 +86,23 @@ public class EnemyController : MonoBehaviour {
             } else if(CheckHoverHeight()) {
                 botmode = BotMode.AdjustingHoverHeight;
                 AdjustHoverHeight();
+                heightAdjusted = true;
             } else if(CheckDirection()) {
                 botmode = BotMode.Turning;
                 Turn();
             } else if(CheckAttackDistance()) {
-                if(botmode != BotMode.Hunting) {
+                if (heightAdjusted) {
                     noiseTimer = 0;
+                    heightAdjusted = false;
                 }
                 botmode = BotMode.Hunting;
+                huntEnded = false;
                 Hunt();
             } else {
+                if (!huntEnded){
+                    originalY = intact.transform.localPosition.y;
+                    huntEnded = true;
+                }
                 botmode = BotMode.Attacking;
                 Attack();
             }
@@ -130,7 +139,7 @@ public class EnemyController : MonoBehaviour {
 
     void Hunt() {
         noiseTimer += Time.deltaTime;
-        var heightShift = Mathf.PerlinNoise(0, noiseTimer);
+        var heightShift = Mathf.PerlinNoise(0, noiseTimer * 1.5f);
         intact.transform.localPosition = Vector3.up * (heightShift * noiseScale + originalY);
         targetPos = transform.position + targetVector.normalized * moveSpeed * Time.deltaTime;
         rb.MovePosition(targetPos);
@@ -146,11 +155,12 @@ public class EnemyController : MonoBehaviour {
     void Attack() {
         attackTimer -= Time.deltaTime;
         var t = attackTime - attackTimer;
-        //var heightShift = Mathf.PerlinNoise(0, t);
-        var sideShift = Mathf.PerlinNoise(0, t);
-        intact.transform.localPosition = Vector3.right * sideShift * attackNoiseScale.x + 
-            Vector3.up * (Mathf.Sin(t * 6) * attackNoiseScale.y + originalY);
-        if(attackTimer < 0) {
+        var sideShift = Mathf.PerlinNoise(0, t * 20f);
+        var heightShift = Mathf.PerlinNoise(t * 20f, 0);
+        //intact.transform.localPosition = Vector3.right * sideShift * attackNoiseScale.x + Vector3.up * (Mathf.Sin(t * 6) * attackNoiseScale.y + originalY);
+        intact.transform.localPosition = Vector3.right * sideShift * attackNoiseScale.x + Vector3.up * (heightShift * attackNoiseScale.y + originalY);
+
+        if (attackTimer < 0) {
             gm.SetHealth(-damage);
             attackTimer = attackTime;
             Enemy.PlayOneShot(AttackSound, 0.3f);

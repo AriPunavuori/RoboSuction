@@ -323,7 +323,6 @@ GameObject:
   - component: {fileID: 1903667488834853183}
   - component: {fileID: 4068102381075008760}
   - component: {fileID: 7801093780036022033}
-  - component: {fileID: 6390105136479603395}
   m_Layer: 9
   m_Name: Robot_Breakable_Red
   m_TagString: Untagged
@@ -388,8 +387,8 @@ MonoBehaviour:
   rightArm: {fileID: 1941073539970052217}
   upperBody: {fileID: 3672500021889933610}
   lowerBody: {fileID: 3240071126957504131}
-  intact: {fileID: 1707187397878179224}
-  hoverHeight: 1
+  intact: {fileID: 7143332177689434603}
+  hoverHeight: 0.75
   hoverHeightTolerance: 0.1
   moveSpeed: 1.25
   turnSpeed: 360
@@ -397,6 +396,9 @@ MonoBehaviour:
   enemyWidth: 0.75
   damage: 10
   health: 3
+  noiseScale: 0.1
+  attackNoiseScale: {x: 0.05, y: 0.02}
+  originalY: 0
   attackTimer: 0
   attackTime: 1
   dirDetectionDelta: 0.1
@@ -497,20 +499,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!136 &6390105136479603395
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707187397878179224}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.17
-  m_Height: 0.61
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &1941073539970052217
 GameObject:
   m_ObjectHideFlags: 0
@@ -25631,6 +25619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6159076132199934968}
+  - component: {fileID: 8003847394182702939}
   m_Layer: 0
   m_Name: Robot_Intact
   m_TagString: Untagged
@@ -25658,6 +25647,20 @@ Transform:
   m_Father: {fileID: 4145617290083106767}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8003847394182702939
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143332177689434603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.17
+  m_Height: 0.61
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7453821618478267918
 GameObject:
   m_ObjectHideFlags: 0

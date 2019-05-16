@@ -25,26 +25,26 @@ public class EnemyController : MonoBehaviour {
     Rigidbody ubrb;
     Rigidbody lbrb;
     public float hoverHeight = 0.75f;
-    public float hoverHeightTolerance = 0.1f;
-    public float moveSpeed = 10f;
-    public float turnSpeed = 60f;
-    public float flipSpeed = 90f;
-    public float enemyWidth = 0.75f;
+    float hoverHeightTolerance = 0.1f;
+    float moveSpeed = 10f;
+    float turnSpeed = 60f;
+    float flipSpeed = 90f;
+    float enemyWidth = 0.75f;
     public int damage = 10;
     public int health = 3;
-    public float noiseScale = 0.05f;
-    public Vector2 attackNoiseScale = new Vector2(0.2f, 0.2f);
+    float noiseScale = 0.05f;
+    Vector2 attackNoiseScale = new Vector2(0.2f, 0.2f);
     float noiseTimer;
-    public float originalY;
+    float originalY;
     bool heightAdjusted;
     bool huntEnded;
-    public float attackTimer = 0;
-    public float attackTime = 1f;
+    float attackTimer = .5f;
+    float attackTime = 1f;
     float stunTime = .5f;
     float stunTimer;
-    public float dirDetectionDelta = 0.1f;
+    float dirDetectionDelta = 0.1f;
     public float botBodyDelay = 1f;
-    public bool botKilled;
+    bool botKilled;
 
     Vector3 targetVector;
 

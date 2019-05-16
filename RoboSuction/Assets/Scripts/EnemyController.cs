@@ -26,19 +26,19 @@ public class EnemyController : MonoBehaviour {
     Rigidbody lbrb;
     public float hoverHeight = 0.75f;
     float hoverHeightTolerance = 0.1f;
-    float moveSpeed = 10f;
+    float moveSpeed = 1.25f;
     float turnSpeed = 60f;
     float flipSpeed = 90f;
     float enemyWidth = 0.75f;
     public int damage = 10;
     public int health = 3;
-    float noiseScale = 0.05f;
-    Vector2 attackNoiseScale = new Vector2(0.2f, 0.2f);
+    float noiseScale = 0.1f;
+    Vector2 attackNoiseScale = new Vector2(0.1f, 0.05f);
     float noiseTimer;
     float originalY;
     bool heightAdjusted;
     bool huntEnded;
-    float attackTimer = .5f;
+    float attackTimer = 0f;
     float attackTime = 1f;
     float stunTime = .5f;
     float stunTimer;
@@ -157,7 +157,6 @@ public class EnemyController : MonoBehaviour {
         var t = attackTime - attackTimer;
         var sideShift = Mathf.PerlinNoise(0, t * 20f);
         var heightShift = Mathf.PerlinNoise(t * 20f, 0);
-        //intact.transform.localPosition = Vector3.right * sideShift * attackNoiseScale.x + Vector3.up * (Mathf.Sin(t * 6) * attackNoiseScale.y + originalY);
         intact.transform.localPosition = Vector3.right * sideShift * attackNoiseScale.x + Vector3.up * (heightShift * attackNoiseScale.y + originalY);
 
         if (attackTimer < 0) {

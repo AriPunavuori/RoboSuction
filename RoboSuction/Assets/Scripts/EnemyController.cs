@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour {
     float stunTime = .5f;
     float stunTimer;
     public float dirDetectionDelta = 0.1f;
-
+    public float botBodyDelay = 1f;
     public bool botKilled;
 
     Vector3 targetVector;
@@ -61,10 +61,10 @@ public class EnemyController : MonoBehaviour {
     void Awake() {
         originalY = intact.transform.localPosition.y;
         rb = GetComponent<Rigidbody>();
-        player = GameObject.Find("VRCamera").transform;
-        //player = GameObject.Find("FollowHead").transform;
-        stunTimer = stunTime;
-        //attackTimer = attackTime;
+        //player = GameObject.Find("VRCamera").transform;
+        player = GameObject.Find("FollowHead").transform;
+        stunTimer = botBodyDelay;
+        Invoke("EnableMesh", botBodyDelay);
         gm = FindObjectOfType<GameManager>();
         larb = leftArm.GetComponent<Rigidbody>();
         rarb = rightArm.GetComponent<Rigidbody>();
@@ -186,6 +186,10 @@ public class EnemyController : MonoBehaviour {
     bool CheckAttackDistance() {
         targetVector = Vector3.ProjectOnPlane(player.position - transform.position, Vector3.up);
         return targetVector.magnitude > enemyWidth;
+    }
+
+    void EnableMesh() {
+        intact.gameObject.SetActive(true);
     }
 
     void BreakBot() {

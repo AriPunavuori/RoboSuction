@@ -322,7 +322,7 @@ Transform:
 --- !u!199 &481255219
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5149,7 +5149,7 @@ Transform:
 --- !u!199 &609719399
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12095,5 +12095,11 @@ PrefabInstance:
       propertyPath: leveldata.Array.data[0].spawnpoints.Array.data[2]
       value: 
       objectReference: {fileID: 755820787}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: leveldata.Array.data[0].enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 8789433946176893146, guid: 14d5ef36696d14ddb88c2f18a9930baa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
     public List<string> infoTexts;
 
     public AudioSource gmAudio;
-    public AudioClip music;
+    public AudioClip[] narration;
 
     public int enemiesSpawned;
     public int enemiesKilled = 0;
@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour {
             enemiesSpawned = 0;
             enemiesKilled = 0;
             SetUIText(infoTexts[waveNumber]);
+            PlayLevelAudio();    
             SetKillText();
             SetWaveText();
             textTimer = textTime;
@@ -152,8 +153,13 @@ public class GameManager : MonoBehaviour {
         SetWaveText();
         SetKillText();
         textTimer = textTime;
+        PlayLevelAudio();
         gmAudio.Play();
         space.SetActive(true);
+    }
+
+    void PlayLevelAudio() {
+        gmAudio.PlayOneShot(narration[waveNumber]);
     }
 
     public void SetUIText(string text) {

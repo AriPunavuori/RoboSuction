@@ -429,7 +429,7 @@ Transform:
 --- !u!199 &115610677
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5224,7 +5224,7 @@ Transform:
 --- !u!199 &219953712
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11020,8 +11020,13 @@ MonoBehaviour:
   - Just survive!
   - You Won!
   - Your life currentcy has been sucked dry!
-  gmAudio: {fileID: 0}
-  music: {fileID: 0}
+  gmAudio: {fileID: 1016001837}
+  narration:
+  - {fileID: 8300000, guid: e2c3a08b72e4d9f42a068f1855e0940d, type: 3}
+  - {fileID: 8300000, guid: 72c74581352ff304fa72eb3d2993729f, type: 3}
+  - {fileID: 8300000, guid: 7957b1fb4d227244d8350857edc433f5, type: 3}
+  - {fileID: 8300000, guid: d9215df00b1c8744aa26378e022fb47c, type: 3}
+  - {fileID: 8300000, guid: 6e72719ddbb408e4ab0d1b182b7fc8a9, type: 3}
   enemiesSpawned: 0
   enemiesKilled: 0
   waveNumber: 0
@@ -11273,16 +11278,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3958019281671441695, guid: 4a4d1c15673b8ab4c9973698fb134a06,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3d3f1127ccf3f054f8f2f3b9a5a93145, type: 2}
-    - target: {fileID: 3958019281671441695, guid: 4a4d1c15673b8ab4c9973698fb134a06,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3958019281671441692, guid: 4a4d1c15673b8ab4c9973698fb134a06,
         type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState
@@ -11347,6 +11342,16 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.m_Position.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958019281671441695, guid: 4a4d1c15673b8ab4c9973698fb134a06,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d3f1127ccf3f054f8f2f3b9a5a93145, type: 2}
+    - target: {fileID: 3958019281671441695, guid: 4a4d1c15673b8ab4c9973698fb134a06,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4d1c15673b8ab4c9973698fb134a06, type: 3}
@@ -12098,16 +12103,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3958019281671441695, guid: 4a4d1c15673b8ab4c9973698fb134a06,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3d3f1127ccf3f054f8f2f3b9a5a93145, type: 2}
-    - target: {fileID: 3958019281671441695, guid: 4a4d1c15673b8ab4c9973698fb134a06,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3958019281671441692, guid: 4a4d1c15673b8ab4c9973698fb134a06,
         type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState
@@ -12172,6 +12167,16 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.m_Position.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958019281671441695, guid: 4a4d1c15673b8ab4c9973698fb134a06,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d3f1127ccf3f054f8f2f3b9a5a93145, type: 2}
+    - target: {fileID: 3958019281671441695, guid: 4a4d1c15673b8ab4c9973698fb134a06,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4d1c15673b8ab4c9973698fb134a06, type: 3}

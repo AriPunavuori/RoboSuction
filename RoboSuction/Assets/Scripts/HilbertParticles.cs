@@ -8,7 +8,7 @@ public class HilbertParticles : MonoBehaviour {
     [Range(1, 8)]
     public int gridComplexity = 3;
     public float dSpeed = 100f;
-
+    public float particleSpawnInterval = 1;
     // Hilbert implementation assumes this is power of 2
     int n;
     ParticleSystem ps;
@@ -45,7 +45,7 @@ public class HilbertParticles : MonoBehaviour {
         ps = GetComponent<ParticleSystem>();
         if (particles == null || particles.Length < ps.main.maxParticles)
             particles = new ParticleSystem.Particle[ps.main.maxParticles];
-        InvokeRepeating("EmitParticle", 1, 5);
+        InvokeRepeating("EmitParticle", 1, particleSpawnInterval);
     }
 
     void EmitParticle() {

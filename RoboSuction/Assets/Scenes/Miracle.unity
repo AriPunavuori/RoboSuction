@@ -406,7 +406,7 @@ PrefabInstance:
     - target: {fileID: 3958019281671441693, guid: 4a4d1c15673b8ab4c9973698fb134a06,
         type: 3}
       propertyPath: particleSpawnInterval
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4d1c15673b8ab4c9973698fb134a06, type: 3}
@@ -10623,7 +10623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1107283626
 Transform:
   m_ObjectHideFlags: 0
@@ -11261,6 +11261,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
         type: 3}
+      propertyPath: narration.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
       propertyPath: uiText
       value: 
       objectReference: {fileID: 1046260480}
@@ -11445,5 +11450,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1886007184533518681, guid: 69c9720740521314c88ed0f0e049bde3,
         type: 3}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: narration.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e2c3a08b72e4d9f42a068f1855e0940d, type: 3}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: narration.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 72c74581352ff304fa72eb3d2993729f, type: 3}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: narration.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7957b1fb4d227244d8350857edc433f5, type: 3}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: narration.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: d9215df00b1c8744aa26378e022fb47c, type: 3}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: narration.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e72719ddbb408e4ab0d1b182b7fc8a9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

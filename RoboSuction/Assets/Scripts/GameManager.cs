@@ -90,13 +90,14 @@ public class GameManager : MonoBehaviour {
             enemiesSpawned = 0;
             enemiesKilled = 0;
             SetUIText(infoTexts[waveNumber]);
-            PlayLevelAudio();    
+            PlayLevelAudio(waveNumber);    
             SetKillText();
             SetWaveText();
             textTimer = textTime;
             spawnTimer = textTime;
         } else {
             SetUIText(infoTexts[infoTexts.Count - 2]);
+            PlayLevelAudio(4);
         }
     }
 
@@ -153,13 +154,13 @@ public class GameManager : MonoBehaviour {
         SetWaveText();
         SetKillText();
         textTimer = textTime;
-        PlayLevelAudio();
+        PlayLevelAudio(waveNumber);
         gmAudio.Play();
         space.SetActive(true);
     }
 
-    void PlayLevelAudio() {
-        gmAudio.PlayOneShot(narration[waveNumber]);
+    void PlayLevelAudio(int i) {
+        gmAudio.PlayOneShot(narration[i]);
     }
 
     public void SetUIText(string text) {

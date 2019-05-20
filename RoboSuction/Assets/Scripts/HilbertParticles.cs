@@ -45,7 +45,11 @@ public class HilbertParticles : MonoBehaviour {
         ps = GetComponent<ParticleSystem>();
         if (particles == null || particles.Length < ps.main.maxParticles)
             particles = new ParticleSystem.Particle[ps.main.maxParticles];
+        InvokeRepeating("EmitParticle", 1, 5);
+    }
 
+    void EmitParticle() {
+        Emit(1);
     }
 
     void Update() {

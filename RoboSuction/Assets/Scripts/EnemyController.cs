@@ -18,6 +18,10 @@ public class EnemyController : MonoBehaviour {
     public GameObject rightArm;
     public GameObject upperBody;
     public GameObject lowerBody;
+    public GameObject brokenLeftArm;
+    public GameObject brokenRightArm;
+    public GameObject brokenUpperBody;
+    public GameObject brokenLowerBody;
     public GameObject intact;
 
     Rigidbody larb;
@@ -61,8 +65,8 @@ public class EnemyController : MonoBehaviour {
     void Awake() {
         originalY = intact.transform.localPosition.y;
         rb = GetComponent<Rigidbody>();
-        //player = GameObject.Find("VRCamera").transform;
-        player = GameObject.Find("FollowHead").transform;
+        player = GameObject.Find("VRCamera").transform;
+        //player = GameObject.Find("FollowHead").transform;
         stunTimer = botBodyDelay;
         Invoke("EnableMesh", botBodyDelay);
         gm = FindObjectOfType<GameManager>();
@@ -192,6 +196,28 @@ public class EnemyController : MonoBehaviour {
     }
 
     void BreakBot() {
+        //if (brokenLeftArm != null){
+
+        //    Destroy(brokenLeftArm, 3f);
+        //    brokenLeftArm.SetActive(true);
+        //    brokenLeftArm.transform.parent = null;
+        //}
+        //if (brokenRightArm != null) {
+        //    Destroy(brokenRightArm, 3f);
+        //    brokenRightArm.SetActive(true);
+        //    brokenRightArm.transform.parent = null;
+        //}
+
+        //Destroy(brokenLowerBody, 3f);
+        //brokenLowerBody.SetActive(true);
+        //brokenLowerBody.transform.parent = null;
+
+        //Destroy(brokenUpperBody, 3f);
+        //brokenUpperBody.SetActive(true);
+        //brokenUpperBody.transform.parent = null;
+
+        //intact.SetActive(false);
+        Destroy(gameObject, .75f);
         leftArm.SetActive(true);
         larb.isKinematic = false;
         leftArm.transform.SetParent(null);
@@ -215,8 +241,22 @@ public class EnemyController : MonoBehaviour {
         intact.SetActive(false);
     }
 
-    public void BotHit() {
+    public void BotHit(string go) {
         if(!botKilled && !Stunned()) {
+            //print(go);
+            //if(go == "Hand_Left"){
+            //    leftArm.SetActive(false);
+            //    brokenLeftArm.transform.parent = null;
+            //    brokenLeftArm.SetActive(true);
+            //    Destroy(brokenLeftArm, 3f);
+            //    brokenLeftArm = null;
+            //} else if(go == "Hand_Right") {
+            //    rightArm.SetActive(false);
+            //    brokenRightArm.transform.parent = null;
+            //    brokenRightArm.SetActive(true);
+            //    Destroy(brokenRightArm, 3f);
+            //    brokenRightArm = null;
+            //}
             stunTimer = stunTime;
             rb.useGravity = true;
             botmode = BotMode.Stunned;
@@ -233,8 +273,6 @@ public class EnemyController : MonoBehaviour {
                     attackTimer = Mathf.Infinity;
                 } else {
                     BreakBot();
-                    gm.resetTimer = gm.resetTime;
-                    Destroy(gameObject, .75f);
                 }
             }
         }

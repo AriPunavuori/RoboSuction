@@ -12099,7 +12099,7 @@ PrefabInstance:
         type: 3}
       propertyPath: leveldata.Array.data[0].enemies.Array.data[0]
       value: 
-      objectReference: {fileID: 8789433946176893146, guid: 14d5ef36696d14ddb88c2f18a9930baa,
+      objectReference: {fileID: 1886007184533518681, guid: 69c9720740521314c88ed0f0e049bde3,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

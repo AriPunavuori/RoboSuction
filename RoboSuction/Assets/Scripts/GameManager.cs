@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour {
     void Update() {
 
         if(!hasGameEnded && hasGameStarted) {
-            resetTimer -= Time.deltaTime;
             spawnTimer -= Time.deltaTime;
             textTimer -= Time.deltaTime;
 
@@ -69,10 +68,12 @@ public class GameManager : MonoBehaviour {
             }
 
             if(!EnemiesToSpawn() && !MoreEnemiesSpawnedThanKilled()) {
+                resetTimer -= Time.deltaTime;
                 SetUIText(infoTexts[infoTexts.Count - 3]);
                 textTimer = textTime;
                 if(resetTimer < 0) {
                     ResetWave();
+                    resetTimer = resetTime;
                 }
             }
         }

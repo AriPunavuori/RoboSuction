@@ -31,9 +31,9 @@ public class Patonki : MonoBehaviour {
         sparky.transform.SetParent(go.transform);
         sparky.GetComponent<ParticleSystem>().Play();
         Destroy(sparky, 3f);
-        if(go.layer == enemyLayer) {
-            var bc = go.GetComponent<EnemyController>();
-            bc.BotHit();
+        if(go.layer == enemyLayer) { 
+            var ec = go.GetComponentInParent<EnemyController>();
+            ec.BotHit(collision.collider.name);
         }
     }
 

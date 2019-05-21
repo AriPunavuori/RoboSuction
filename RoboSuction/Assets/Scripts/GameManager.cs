@@ -102,6 +102,11 @@ public class GameManager : MonoBehaviour {
                 pilars[0].SetActive(false);
                 pilars[1].SetActive(true);
                 pilars[2].SetActive(true);
+                pilars[3].SetActive(true);
+                pilars[4].SetActive(true);
+                pilars[5].SetActive(true);
+                pilars[6].SetActive(true);
+
             }
         } else {
             foreach (var go in particles){

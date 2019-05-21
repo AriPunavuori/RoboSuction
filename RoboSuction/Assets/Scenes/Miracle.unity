@@ -693,6 +693,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a70940fd6a1c4b41a2340dac539cdc8, type: 3}
+--- !u!1 &160861876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 74615719633916882, guid: 9a70940fd6a1c4b41a2340dac539cdc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 160861875}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &160861877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6175543939259713101, guid: 9a70940fd6a1c4b41a2340dac539cdc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 160861875}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &160861878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6462623318449773224, guid: 9a70940fd6a1c4b41a2340dac539cdc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 160861875}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &160861879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6462623317248537968, guid: 9a70940fd6a1c4b41a2340dac539cdc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 160861875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &219611300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9,
@@ -795,7 +819,7 @@ Transform:
 --- !u!199 &410803212
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5553,7 +5577,7 @@ Transform:
 --- !u!199 &481255219
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10380,7 +10404,7 @@ Transform:
 --- !u!199 &609719399
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15692,7 +15716,7 @@ Transform:
 --- !u!199 &1018411068
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20570,7 +20594,7 @@ Transform:
 --- !u!199 &1175896435
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -25830,7 +25854,7 @@ Transform:
 --- !u!199 &1553019334
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -30582,7 +30606,7 @@ Transform:
 --- !u!199 &1677135666
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -35732,7 +35756,7 @@ Transform:
 --- !u!199 &2011867900
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -40867,7 +40891,7 @@ PrefabInstance:
     - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
         type: 3}
       propertyPath: pilars.Array.size
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
         type: 3}
@@ -41115,5 +41139,25 @@ PrefabInstance:
       propertyPath: pilars.Array.data[2]
       value: 
       objectReference: {fileID: 1097409027}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: pilars.Array.data[3]
+      value: 
+      objectReference: {fileID: 160861879}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: pilars.Array.data[4]
+      value: 
+      objectReference: {fileID: 160861878}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: pilars.Array.data[5]
+      value: 
+      objectReference: {fileID: 160861877}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: pilars.Array.data[6]
+      value: 
+      objectReference: {fileID: 160861876}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

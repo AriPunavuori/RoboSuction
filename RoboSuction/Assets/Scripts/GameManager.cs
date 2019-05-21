@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     public LevelData[] leveldata;
     public GameObject space;
     public GameObject[] particles;
+    public GameObject[] pilars;
     public List<string> infoTexts;
 
     public AudioSource gmAudio;
@@ -97,6 +98,11 @@ public class GameManager : MonoBehaviour {
             textTimer = textTime;
             spawnTimer = textTime;
             particles[waveNumber].SetActive(true);
+            if(waveNumber == leveldata.Length) {
+                pilars[0].SetActive(false);
+                pilars[1].SetActive(true);
+                pilars[2].SetActive(true);
+            }
         } else {
             foreach (var go in particles){
                 go.SetActive(false);

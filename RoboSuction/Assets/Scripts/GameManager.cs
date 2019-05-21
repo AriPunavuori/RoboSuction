@@ -113,6 +113,8 @@ public class GameManager : MonoBehaviour {
                 pilars[11].SetActive(false);
                 pilars[12].SetActive(false);
                 pilars[13].SetActive(true);
+                pilars[14].SetActive(false);
+                pilars[15].SetActive(true);
 
             }
         } else {

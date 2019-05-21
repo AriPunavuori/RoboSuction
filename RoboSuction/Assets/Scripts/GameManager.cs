@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour {
             textTimer = textTime;
             spawnTimer = textTime;
             particles[waveNumber].SetActive(true);
+
             if(waveNumber == leveldata.Length) {
                 pilars[0].SetActive(false);
                 pilars[1].SetActive(true);

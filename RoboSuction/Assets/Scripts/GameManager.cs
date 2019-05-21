@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
 
     public LevelData[] leveldata;
     public GameObject space;
+    public GameObject[] particles;
     public List<string> infoTexts;
 
     public AudioSource gmAudio;
@@ -95,7 +96,11 @@ public class GameManager : MonoBehaviour {
             SetWaveText();
             textTimer = textTime;
             spawnTimer = textTime;
+            particles[waveNumber].SetActive(true);
         } else {
+            foreach (var go in particles){
+                go.SetActive(false);
+            }
             SetUIText(infoTexts[infoTexts.Count - 2]);
             PlayLevelAudio(4);
         }

@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour {
     public AudioSource gmAudio;
     public AudioClip[] narration;
 
+    public Animator anim;
+
     public int enemiesSpawned;
     public int enemiesKilled = 0;
     public int waveNumber = 0;
@@ -100,22 +102,27 @@ public class GameManager : MonoBehaviour {
             particles[waveNumber].SetActive(true);
 
             if(waveNumber == leveldata.Length-1) {
-                pilars[0].SetActive(false);
-                pilars[1].SetActive(true);
-                pilars[2].SetActive(true);
-                pilars[3].SetActive(true);
-                pilars[4].SetActive(true);
-                pilars[5].SetActive(true);
-                pilars[6].SetActive(true);
-                pilars[7].SetActive(false);
-                pilars[8].SetActive(true);
-                pilars[9].SetActive(false);
-                pilars[10].SetActive(false);
-                pilars[11].SetActive(false);
-                pilars[12].SetActive(false);
-                pilars[13].SetActive(true);
-                pilars[14].SetActive(false);
-                pilars[15].SetActive(true);
+                var pilarTruth = new bool[] { false, true, true, true, true, true, true, false, true, false, false, false, false, true, false, true };
+                for (int i = 0; i < pilars.Length; i++){
+                    pilars[i].SetActive(pilarTruth[i]);
+                }
+
+                //pilars[0].SetActive(false);
+                //pilars[1].SetActive(true);
+                //pilars[2].SetActive(true);
+                //pilars[3].SetActive(true);
+                //pilars[4].SetActive(true);
+                //pilars[5].SetActive(true);
+                //pilars[6].SetActive(true);
+                //pilars[7].SetActive(false);
+                //pilars[8].SetActive(true);
+                //pilars[9].SetActive(false);
+                //pilars[10].SetActive(false);
+                //pilars[11].SetActive(false);
+                //pilars[12].SetActive(false);
+                //pilars[13].SetActive(true);
+                //pilars[14].SetActive(false);
+                //pilars[15].SetActive(true);
 
             }
         } else {
@@ -124,6 +131,8 @@ public class GameManager : MonoBehaviour {
             }
             SetUIText(infoTexts[infoTexts.Count - 2]);
             PlayLevelAudio(4);
+            anim = GetComponent<Animator>();
+            anim.Play("End_Animation");
         }
     }
 

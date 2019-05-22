@@ -8,6 +8,8 @@ public class Patonki : MonoBehaviour {
     public GameObject powerOnEffects;
     public GameObject spark;
     public SteamVR_Action_Vibration touchFeedback;
+    public AudioClip pickUp;
+    public AudioSource patonki;
     GameManager gm;
 
     float feedbackAmplitude = 75;
@@ -46,6 +48,7 @@ public class Patonki : MonoBehaviour {
 
     public void PowerOn() {
         powerOnEffects.gameObject.SetActive(true);
+        patonki.PlayOneShot(pickUp);
         gm.CountSticksInHand(1);
         FeedBack();
     }

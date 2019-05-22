@@ -98,10 +98,25 @@ public class GameManager : MonoBehaviour {
             textTimer = textTime;
             spawnTimer = textTime;
             particles[waveNumber].SetActive(true);
+
             if(waveNumber == leveldata.Length) {
                 pilars[0].SetActive(false);
                 pilars[1].SetActive(true);
                 pilars[2].SetActive(true);
+                pilars[3].SetActive(true);
+                pilars[4].SetActive(true);
+                pilars[5].SetActive(true);
+                pilars[6].SetActive(true);
+                pilars[7].SetActive(false);
+                pilars[8].SetActive(true);
+                pilars[9].SetActive(false);
+                pilars[10].SetActive(false);
+                pilars[11].SetActive(false);
+                pilars[12].SetActive(false);
+                pilars[13].SetActive(true);
+                pilars[14].SetActive(false);
+                pilars[15].SetActive(true);
+
             }
         } else {
             foreach (var go in particles){

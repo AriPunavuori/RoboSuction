@@ -19709,7 +19709,7 @@ MonoBehaviour:
   brokenLowerBody: {fileID: 0}
   intact: {fileID: 7980205550660142378}
   hoverHeight: 0.75
-  moveSpeed: 1
+  moveSpeed: 2
   turnSpeed: 180
   damage: 10
   health: 1

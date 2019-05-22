@@ -51197,5 +51197,20 @@ PrefabInstance:
       propertyPath: resetTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: leveldata.Array.data[1].spawnInterval
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: leveldata.Array.data[2].spawnInterval
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: leveldata.Array.data[3].spawnInterval
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

@@ -7,5 +7,5 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Miracle.unity
-    guid: a7f2bcadd89e8ef499e0be170b2ddeb8
+    guid: 6323cc3600111e34489f3c8ede8ab1d8
   m_configObjects: {}

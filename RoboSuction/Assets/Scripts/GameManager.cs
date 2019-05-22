@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
 
     public int playerHealth = 100;
     public bool resetComing;
+
     public bool hasGameStarted;
     public bool hasGameEnded;
     public int sticksInHand;
@@ -74,9 +75,13 @@ public class GameManager : MonoBehaviour {
             }
 
             if(!EnemiesToSpawn() && !MoreEnemiesSpawnedThanKilled()) {
+                if (!resetComing) {
+                    PlayLevelAudio(4);
+                    resetComing = true;
+                }
+
                 resetTimer -= Time.deltaTime;
                 SetUIText(infoTexts[infoTexts.Count - 3]);
-                PlayLevelAudio(4);
                 textTimer = textTime;
                 if(resetTimer < 0) {
                     ResetWave();
@@ -87,6 +92,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ResetWave() {
+        resetComing = false;
         if(IsLastRound() && !MoreEnemiesSpawnedThanKilled()) {
             hasGameEnded = true;
         }

@@ -15371,6 +15371,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7209409
       objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2d4ae90c4d167554d91a72b402b94a22,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0000005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d4ae90c4d167554d91a72b402b94a22, type: 3}
 --- !u!4 &846557095 stripped
@@ -20214,6 +20219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 591245198968672460, guid: a55096e794f4d5e41944ceee8610cb35,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 8372067122779711998, guid: a55096e794f4d5e41944ceee8610cb35,
         type: 3}
@@ -46425,5 +46435,15 @@ PrefabInstance:
       propertyPath: narration.Array.data[6]
       value: 
       objectReference: {fileID: 8300000, guid: 6e72719ddbb408e4ab0d1b182b7fc8a9, type: 3}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: resetTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: resetTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

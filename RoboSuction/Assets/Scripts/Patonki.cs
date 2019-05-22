@@ -48,7 +48,7 @@ public class Patonki : MonoBehaviour {
 
     public void PowerOn() {
         powerOnEffects.gameObject.SetActive(true);
-        patonki.PlayOneShot(pickUp);
+        patonki.PlayOneShot(pickUp, 0.5f);
         gm.CountSticksInHand(1);
         FeedBack();
     }

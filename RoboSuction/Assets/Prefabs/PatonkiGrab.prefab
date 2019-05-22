@@ -146,8 +146,8 @@ MonoBehaviour:
   touchFeedback:
     actionPath: /actions/default/out/Haptic
     needsReinit: 0
-  pickUp: {fileID: 0}
-  patonki: {fileID: 0}
+  pickUp: {fileID: 8300000, guid: 53f6f4907f8bf4bde8874563e8fdb1dd, type: 3}
+  patonki: {fileID: 4128354934949882264}
   isRightHand: 1
 --- !u!114 &1692997559
 MonoBehaviour:

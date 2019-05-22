@@ -58,7 +58,9 @@ public class GameManager : MonoBehaviour {
     public int sticksInHand;
 
     void Update() {
-
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            anim.Play("End_Animation");
+        }
         if(!hasGameEnded && hasGameStarted) {
             spawnTimer -= Time.deltaTime;
             textTimer -= Time.deltaTime;
@@ -131,7 +133,6 @@ public class GameManager : MonoBehaviour {
             }
             SetUIText(infoTexts[infoTexts.Count - 2]);
             PlayLevelAudio(4);
-            anim = GetComponent<Animator>();
             anim.Play("End_Animation");
         }
     }

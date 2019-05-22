@@ -46277,5 +46277,30 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1739354264}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1107283627}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: leveldata.Array.data[0].numberOfEnemies
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: leveldata.Array.data[1].numberOfEnemies
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: leveldata.Array.data[2].numberOfEnemies
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: leveldata.Array.data[3].numberOfEnemies
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

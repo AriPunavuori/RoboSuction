@@ -46147,6 +46147,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
         type: 3}
+      propertyPath: narration.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
       propertyPath: uiText
       value: 
       objectReference: {fileID: 1046260480}
@@ -46405,5 +46410,20 @@ PrefabInstance:
       propertyPath: leveldata.Array.data[3].numberOfEnemies
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: narration.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: ffe98ef837ce64f60ad041004d95b3d1, type: 3}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: narration.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: f9261a1e84c154ef99bc63b376875147, type: 3}
+    - target: {fileID: 7488527105022240091, guid: da00ef732d7164240ad028d264c1f629,
+        type: 3}
+      propertyPath: narration.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e72719ddbb408e4ab0d1b182b7fc8a9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00ef732d7164240ad028d264c1f629, type: 3}

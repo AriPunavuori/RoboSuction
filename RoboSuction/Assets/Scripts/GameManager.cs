@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour {
             if(!EnemiesToSpawn() && !MoreEnemiesSpawnedThanKilled()) {
                 resetTimer -= Time.deltaTime;
                 SetUIText(infoTexts[infoTexts.Count - 3]);
+                PlayLevelAudio(4);
                 textTimer = textTime;
                 if(resetTimer < 0) {
                     ResetWave();
@@ -132,7 +133,7 @@ public class GameManager : MonoBehaviour {
                 go.SetActive(false);
             }
             SetUIText(infoTexts[infoTexts.Count - 2]);
-            PlayLevelAudio(4);
+            PlayLevelAudio(6);
             anim.Play("End_Animation");
         }
     }
@@ -170,6 +171,7 @@ public class GameManager : MonoBehaviour {
 
         healthBar.value = dh / 5;
         if(playerHealth < 1) {
+            PlayLevelAudio(5);
             uiText.text = infoTexts[infoTexts.Count - 1];
             textTimer = textTime;
             hasGameEnded = true;

@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour {
             spawnTimer = textTime;
             particles[waveNumber].SetActive(true);
 
-            if(waveNumber == leveldata.Length) {
+            if(waveNumber == leveldata.Length-1) {
                 pilars[0].SetActive(false);
                 pilars[1].SetActive(true);
                 pilars[2].SetActive(true);

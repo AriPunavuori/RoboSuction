@@ -50,22 +50,24 @@ MonoBehaviour:
   kills1: {fileID: 0}
   kills2: {fileID: 0}
   leveldata:
+  - numberOfEnemies: 4
+    spawnInterval: 2
+    enemies:
+    - {fileID: 1886007184533518681, guid: 69c9720740521314c88ed0f0e049bde3, type: 3}
+    spawnpoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - numberOfEnemies: 5
     spawnInterval: 2
     enemies:
     - {fileID: 1886007184533518681, guid: 69c9720740521314c88ed0f0e049bde3, type: 3}
     spawnpoints:
     - {fileID: 0}
-  - numberOfEnemies: 20
-    spawnInterval: 1
-    enemies:
-    - {fileID: 1886007184533518681, guid: 69c9720740521314c88ed0f0e049bde3, type: 3}
-    spawnpoints:
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-  - numberOfEnemies: 40
-    spawnInterval: 0.75
+  - numberOfEnemies: 5
+    spawnInterval: 1.75
     enemies:
     - {fileID: 1886007184533518681, guid: 69c9720740521314c88ed0f0e049bde3, type: 3}
     - {fileID: 1707187397878179224, guid: 4b4167ec7d1b97740a36a7114f848d93, type: 3}
@@ -75,8 +77,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-  - numberOfEnemies: 60
-    spawnInterval: 0.5
+  - numberOfEnemies: 5
+    spawnInterval: 1.5
     enemies:
     - {fileID: 1707187397878179224, guid: 4b4167ec7d1b97740a36a7114f848d93, type: 3}
     spawnpoints:
@@ -88,14 +90,44 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+  space: {fileID: 0}
+  particles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pilars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   infoTexts:
   - Time for Warm Up!
-  - Here we go!
+  - Get ready!
   - Ready 4 more?
   - Just survive!
   - Round Complete
-  - You Won!
+  - You Win! <3
   - Your life currentcy has been sucked dry!
+  gmAudio: {fileID: 7488527105022240093}
+  narration:
+  - {fileID: 8300000, guid: e2c3a08b72e4d9f42a068f1855e0940d, type: 3}
+  - {fileID: 8300000, guid: 72c74581352ff304fa72eb3d2993729f, type: 3}
+  - {fileID: 8300000, guid: 7957b1fb4d227244d8350857edc433f5, type: 3}
+  - {fileID: 8300000, guid: d9215df00b1c8744aa26378e022fb47c, type: 3}
+  - {fileID: 8300000, guid: 6e72719ddbb408e4ab0d1b182b7fc8a9, type: 3}
   enemiesSpawned: 0
   enemiesKilled: 0
   waveNumber: 0
@@ -105,7 +137,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   playerHealth: 100
   resetComing: 0
+  hasGameStarted: 0
   hasGameEnded: 0
+  sticksInHand: 0
 --- !u!82 &7488527105022240093
 AudioSource:
   m_ObjectHideFlags: 0
@@ -117,7 +151,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fcaaaf83d96055749adce0d48461955e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.65
   m_Pitch: 1
   Loop: 1

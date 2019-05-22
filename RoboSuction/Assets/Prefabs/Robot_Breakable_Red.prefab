@@ -19508,7 +19508,7 @@ MonoBehaviour:
   AttackSound: {fileID: 8300000, guid: 32282117aaf6b0841b79108c70075335, type: 3}
   HurtSound: {fileID: 8300000, guid: 2f799695a9445f04ea80fb7588669911, type: 3}
   SpawnSound: {fileID: 8300000, guid: e3dfa1f1c70e77049bd421779ed6e400, type: 3}
-  DieSound: {fileID: 8300000, guid: 37bbc9bb8a861ea4c91b487c836d83d8, type: 3}
+  DieSound: {fileID: 8300000, guid: aa3db55018d6047d0bfa6a8a182166cf, type: 3}
   Enemy: {fileID: 7801093780036022033}
   botmode: 0
   leftArm: {fileID: 7453821618478267918}
@@ -19521,6 +19521,8 @@ MonoBehaviour:
   brokenLowerBody: {fileID: 0}
   intact: {fileID: 7143332177689434603}
   hoverHeight: 0.75
+  moveSpeed: 0.75
+  turnSpeed: 90
   damage: 10
   health: 3
   botBodyDelay: 1
@@ -20035,7 +20037,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 37bbc9bb8a861ea4c91b487c836d83d8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aa3db55018d6047d0bfa6a8a182166cf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1

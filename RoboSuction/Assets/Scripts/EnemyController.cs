@@ -30,9 +30,9 @@ public class EnemyController : MonoBehaviour {
     Rigidbody lbrb;
     public float hoverHeight = 0.75f;
     float hoverHeightTolerance = 0.1f;
-    float moveSpeed = 1.25f;
-    float turnSpeed = 60f;
-    float flipSpeed = 90f;
+    public float moveSpeed = 3f;
+    public float turnSpeed = 60f;
+    float flipSpeed = 180f;
     float enemyWidth = 0.75f;
     public int damage = 10;
     public int health = 3;
@@ -257,13 +257,13 @@ public class EnemyController : MonoBehaviour {
             //    Destroy(brokenRightArm, 3f);
             //    brokenRightArm = null;
             //}
+
             stunTimer = stunTime;
             rb.useGravity = true;
             botmode = BotMode.Stunned;
             health -= 1;
-            Enemy.PlayOneShot(HurtSound);
 
-            if(health < 1) {
+            if (health < 1) {
                 botKilled = true;
                 gm.SetHealth(1);
                 gm.enemiesKilled++;
@@ -274,6 +274,8 @@ public class EnemyController : MonoBehaviour {
                 } else {
                     BreakBot();
                 }
+            } else {
+                Enemy.PlayOneShot(HurtSound);
             }
         }
     }

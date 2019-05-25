@@ -65,8 +65,9 @@ public class EnemyController : MonoBehaviour {
     void Awake() {
         originalY = intact.transform.localPosition.y;
         rb = GetComponent<Rigidbody>();
-        player = GameObject.Find("VRCamera").transform;
+        //player = GameObject.Find("VRCamera").transform;
         //player = GameObject.Find("FollowHead").transform;
+        player = GameObject.Find("Player").transform;
         stunTimer = botBodyDelay;
         Invoke("EnableMesh", botBodyDelay);
         gm = FindObjectOfType<GameManager>();

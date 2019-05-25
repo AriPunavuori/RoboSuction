@@ -19703,10 +19703,10 @@ MonoBehaviour:
   rightArm: {fileID: 1688076318042369208}
   upperBody: {fileID: 4569468216218500587}
   lowerBody: {fileID: 2407842417516751426}
-  brokenLeftArm: {fileID: 0}
-  brokenRightArm: {fileID: 0}
-  brokenUpperBody: {fileID: 0}
-  brokenLowerBody: {fileID: 0}
+  brokenLeftArm: {fileID: 7704567332185514703}
+  brokenRightArm: {fileID: 1688076318042369208}
+  brokenUpperBody: {fileID: 4569468216218500587}
+  brokenLowerBody: {fileID: 2407842417516751426}
   intact: {fileID: 7980205550660142378}
   hoverHeight: 0.75
   moveSpeed: 2
